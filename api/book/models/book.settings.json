@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "name": "book"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "bookId": {
+      "type": "uid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "blurb": {
+      "type": "richtext"
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "pdfVersion": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "author": {
+      "type": "string"
+    },
+    "kidMade": {
+      "type": "boolean"
+    },
+    "currentReaders": {
+      "type": "json"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "profiles": {
+      "collection": "card"
+    },
+    "pastReaders": {
+      "type": "json"
+    },
+    "readerFeedback": {
+      "type": "json"
+    }
+  }
+}

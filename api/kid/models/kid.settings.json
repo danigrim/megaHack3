@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kids",
+  "info": {
+    "name": "kid"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "schoolId": {
+      "type": "biginteger"
+    },
+    "kidId": {
+      "type": "uid"
+    },
+    "booksWritten": {
+      "type": "json"
+    },
+    "booksRead": {
+      "type": "json"
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "parentPhone": {
+      "type": "biginteger"
+    },
+    "coins": {
+      "type": "biginteger"
+    },
+    "goods": {
+      "type": "json"
+    },
+    "profiles": {
+      "collection": "card"
+    }
+  }
+}
