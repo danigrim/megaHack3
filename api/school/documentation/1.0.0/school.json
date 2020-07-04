@@ -522,15 +522,52 @@
           "id": {
             "type": "string"
           },
-          "schoolId": {
-            "type": "uid"
+          "students": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "birthDate": {
+                "type": "string"
+              },
+              "parentPhone": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "goods": {
+                "type": "string"
+              },
+              "books_read": {
+                "type": "string"
+              },
+              "books_writtens": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "object"
+              },
+              "isOnline": {
+                "type": "boolean"
+              }
+            }
           }
         }
       },
       "NewSchool": {
         "properties": {
-          "schoolId": {
-            "type": "uid"
+          "students": {
+            "type": "string"
           }
         }
       }

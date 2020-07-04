@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/cards": {
+    "/goods": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the goods's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve goods document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Card"
+                    "$ref": "#/components/schemas/Goods"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Goods"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new goods record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve goods document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Card"
+                  "$ref": "#/components/schemas/Goods"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Goods"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCard"
+                "$ref": "#/components/schemas/NewGoods"
               }
             }
           }
         }
       }
     },
-    "/cards/count": {
+    "/goods/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of goods documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve goods document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Goods"
         ],
         "parameters": []
       }
     },
-    "/cards/{id}": {
+    "/goods/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one goods record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve goods document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Card"
+                  "$ref": "#/components/schemas/Goods"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Goods"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single goods record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve goods document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Card"
+                  "$ref": "#/components/schemas/Goods"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Goods"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCard"
+                "$ref": "#/components/schemas/NewGoods"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single goods record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single goods based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Goods"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Card": {
+      "Goods": {
         "required": [
           "id"
         ],
@@ -522,161 +522,94 @@
           "id": {
             "type": "string"
           },
-          "setting": {
-            "type": "string",
-            "enum": [
-              "beach",
-              "forest",
-              "inside",
-              "urban",
-              "park",
-              "establishment",
-              "hospital",
-              "rural",
-              "sky",
-              "pricessFantasy",
-              "cartoonFantasy",
-              "university",
-              "school",
-              "social"
-            ]
+          "name": {
+            "type": "string"
           },
-          "genderAssociation": {
-            "type": "string",
-            "enum": [
-              "girl",
-              "boy"
-            ]
+          "description": {
+            "type": "string"
           },
-          "realm": {
-            "type": "string",
-            "enum": [
-              "reality",
-              "fantasy"
-            ]
+          "price": {
+            "type": "number"
           },
-          "mood": {
-            "type": "string",
-            "enum": [
-              "scary",
-              "funny",
-              "bubbly",
-              "happy",
-              "suspense",
-              "drama",
-              "adventure"
-            ]
+          "cover": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              }
+            }
           },
-          "characters": {
-            "type": "string",
-            "enum": [
-              "human",
-              "cartoonHuman",
-              "animal",
-              "cartoonAnimal",
-              "alien",
-              "cartoonRandom",
-              "object",
-              "spaceObject"
-            ]
-          },
-          "ending": {
-            "type": "string",
-            "enum": [
-              "happyEnding",
-              "suspenseEnding",
-              "suddenEnding"
-            ]
-          },
-          "interactions": {
-            "type": "string",
-            "enum": [
-              "socialFamily",
-              "socialFriends",
-              "socialAnimals",
-              "socialEnvironment",
-              "antisocial"
-            ]
+          "forBook": {
+            "type": "boolean"
           }
         }
       },
-      "NewCard": {
+      "NewGoods": {
         "properties": {
-          "setting": {
-            "type": "string",
-            "enum": [
-              "beach",
-              "forest",
-              "inside",
-              "urban",
-              "park",
-              "establishment",
-              "hospital",
-              "rural",
-              "sky",
-              "pricessFantasy",
-              "cartoonFantasy",
-              "university",
-              "school",
-              "social"
-            ]
+          "name": {
+            "type": "string"
           },
-          "genderAssociation": {
-            "type": "string",
-            "enum": [
-              "girl",
-              "boy"
-            ]
+          "description": {
+            "type": "string"
           },
-          "realm": {
-            "type": "string",
-            "enum": [
-              "reality",
-              "fantasy"
-            ]
+          "price": {
+            "type": "number"
           },
-          "mood": {
-            "type": "string",
-            "enum": [
-              "scary",
-              "funny",
-              "bubbly",
-              "happy",
-              "suspense",
-              "drama",
-              "adventure"
-            ]
-          },
-          "characters": {
-            "type": "string",
-            "enum": [
-              "human",
-              "cartoonHuman",
-              "animal",
-              "cartoonAnimal",
-              "alien",
-              "cartoonRandom",
-              "object",
-              "spaceObject"
-            ]
-          },
-          "ending": {
-            "type": "string",
-            "enum": [
-              "happyEnding",
-              "suspenseEnding",
-              "suddenEnding"
-            ]
-          },
-          "interactions": {
-            "type": "string",
-            "enum": [
-              "socialFamily",
-              "socialFriends",
-              "socialAnimals",
-              "socialEnvironment",
-              "antisocial"
-            ]
+          "forBook": {
+            "type": "boolean"
           }
         }
       }
@@ -684,7 +617,7 @@
   },
   "tags": [
     {
-      "name": "Card"
+      "name": "Goods"
     }
   ]
 }

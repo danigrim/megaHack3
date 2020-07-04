@@ -12,26 +12,27 @@
     "ageRange": {
       "type": "biginteger"
     },
-    "classId": {
-      "type": "uid"
-    },
     "teacherName": {
       "type": "string"
     },
     "teacherMail": {
       "type": "email"
     },
-    "schoolId": {
-      "type": "biginteger"
-    },
-    "words": {
-      "collection": "word"
-    },
     "books": {
       "collection": "book"
     },
     "kid_written_books": {
       "collection": "book"
+    },
+    "school": {
+      "model": "school"
+    },
+    "kid": {
+      "model": "kid",
+      "via": "class"
+    },
+    "words": {
+      "type": "json"
     }
   }
 }

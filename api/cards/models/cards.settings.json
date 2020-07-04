@@ -1,16 +1,19 @@
 {
   "kind": "collectionType",
-  "collectionName": "schools",
+  "collectionName": "cards",
   "info": {
-    "name": "school"
+    "name": "cards"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "students": {
-      "collection": "kid"
+    "profile": {
+      "type": "json"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

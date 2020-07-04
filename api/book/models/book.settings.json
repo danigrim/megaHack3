@@ -12,9 +12,6 @@
     "name": {
       "type": "string"
     },
-    "bookId": {
-      "type": "uid"
-    },
     "title": {
       "type": "string"
     },
@@ -52,17 +49,14 @@
     "text": {
       "type": "richtext"
     },
-    "profiles": {
-      "collection": "card"
-    },
-    "readerFeedback": {
-      "type": "json"
-    },
     "currentReaders": {
       "collection": "kid"
     },
     "pastReaders": {
       "collection": "kid"
+    },
+    "profile": {
+      "type": "json"
     }
   }
 }

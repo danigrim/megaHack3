@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/words": {
+    "/cards": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the cards's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Word"
+                    "$ref": "#/components/schemas/Cards"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Cards"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new cards record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Word"
+                  "$ref": "#/components/schemas/Cards"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Cards"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWord"
+                "$ref": "#/components/schemas/NewCards"
               }
             }
           }
         }
       }
     },
-    "/words/count": {
+    "/cards/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of cards documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Cards"
         ],
         "parameters": []
       }
     },
-    "/words/{id}": {
+    "/cards/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one cards record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Word"
+                  "$ref": "#/components/schemas/Cards"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Cards"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single cards record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Word"
+                  "$ref": "#/components/schemas/Cards"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Cards"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWord"
+                "$ref": "#/components/schemas/NewCards"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single cards record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single cards based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Cards"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Word": {
+      "Cards": {
         "required": [
           "id"
         ],
@@ -522,61 +522,21 @@
           "id": {
             "type": "string"
           },
-          "word": {
-            "type": "string"
-          },
-          "ageRange": {
-            "type": "integer"
-          },
           "profile": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "setting": {
-                "type": "string"
-              },
-              "genderAssociation": {
-                "type": "string"
-              },
-              "realm": {
-                "type": "string"
-              },
-              "mood": {
-                "type": "string"
-              },
-              "characters": {
-                "type": "string"
-              },
-              "ending": {
-                "type": "string"
-              },
-              "interactions": {
-                "type": "string"
-              }
-            }
+            "type": "object"
           },
-          "wordId": {
-            "type": "uid"
+          "name": {
+            "type": "string"
           }
         }
       },
-      "NewWord": {
+      "NewCards": {
         "properties": {
-          "word": {
-            "type": "string"
-          },
-          "ageRange": {
-            "type": "integer"
-          },
           "profile": {
-            "type": "string"
+            "type": "object"
           },
-          "wordId": {
-            "type": "uid"
+          "name": {
+            "type": "string"
           }
         }
       }
@@ -584,7 +544,7 @@
   },
   "tags": [
     {
-      "name": "Word"
+      "name": "Cards"
     }
   ]
 }

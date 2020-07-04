@@ -12,18 +12,6 @@
     "name": {
       "type": "string"
     },
-    "schoolId": {
-      "type": "biginteger"
-    },
-    "kidId": {
-      "type": "uid"
-    },
-    "booksWritten": {
-      "type": "json"
-    },
-    "booksRead": {
-      "type": "json"
-    },
     "birthDate": {
       "type": "date"
     },
@@ -34,13 +22,23 @@
       "type": "biginteger"
     },
     "goods": {
+      "collection": "goods"
+    },
+    "books_read": {
+      "collection": "book"
+    },
+    "books_writtens": {
+      "collection": "book"
+    },
+    "class": {
+      "via": "kid",
+      "model": "classgroup"
+    },
+    "profile": {
       "type": "json"
     },
-    "profiles": {
-      "collection": "card"
-    },
-    "classgroup": {
-      "model": "classgroup"
+    "isOnline": {
+      "type": "boolean"
     }
   }
 }

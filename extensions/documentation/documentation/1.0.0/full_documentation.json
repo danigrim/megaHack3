@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/04/2020 12:10:19 AM"
+    "x-generation-date": "07/04/2020 2:14:03 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -559,16 +559,16 @@
     "/cards": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the cards's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Card"
+                    "$ref": "#/components/schemas/Cards"
                   }
                 }
               }
@@ -607,7 +607,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Cards"
         ],
         "parameters": [
           {
@@ -750,14 +750,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new cards record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Card"
+                  "$ref": "#/components/schemas/Cards"
                 }
               }
             }
@@ -795,7 +795,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Cards"
         ],
         "requestBody": {
           "description": "",
@@ -803,7 +803,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCard"
+                "$ref": "#/components/schemas/NewCards"
               }
             }
           }
@@ -813,10 +813,10 @@
     "/cards/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of cards documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -862,7 +862,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Cards"
         ],
         "parameters": []
       }
@@ -870,14 +870,14 @@
     "/cards/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one cards record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Card"
+                  "$ref": "#/components/schemas/Cards"
                 }
               }
             }
@@ -915,7 +915,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Cards"
         ],
         "parameters": [
           {
@@ -932,14 +932,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single cards record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve cards document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Card"
+                  "$ref": "#/components/schemas/Cards"
                 }
               }
             }
@@ -977,7 +977,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Cards"
         ],
         "requestBody": {
           "description": "",
@@ -985,7 +985,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCard"
+                "$ref": "#/components/schemas/NewCards"
               }
             }
           }
@@ -1005,10 +1005,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single cards record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single cards based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -1051,7 +1051,7 @@
         },
         "summary": "",
         "tags": [
-          "Card"
+          "Cards"
         ],
         "parameters": [
           {
@@ -1578,6 +1578,517 @@
         ]
       }
     },
+    "/goods": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the goods's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve goods document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Goods"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Goods"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new goods record",
+        "responses": {
+          "200": {
+            "description": "Retrieve goods document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goods"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Goods"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewGoods"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/goods/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the numver of goods documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve goods document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Goods"
+        ],
+        "parameters": []
+      }
+    },
+    "/goods/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one goods record",
+        "responses": {
+          "200": {
+            "description": "Retrieve goods document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goods"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Goods"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single goods record",
+        "responses": {
+          "200": {
+            "description": "Retrieve goods document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goods"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Goods"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewGoods"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single goods record",
+        "responses": {
+          "200": {
+            "description": "deletes a single goods based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Goods"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/kids": {
       "get": {
         "deprecated": false,
@@ -2036,6 +2547,74 @@
                 "schema": {
                   "type": "integer",
                   "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Kid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/kids/recommend/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -2600,7 +3179,7 @@
         ]
       }
     },
-    "/words": {
+    "/teachers": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -2612,7 +3191,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Word"
+                    "$ref": "#/components/schemas/Teacher"
                   }
                 }
               }
@@ -2651,7 +3230,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Teacher"
         ],
         "parameters": [
           {
@@ -2801,7 +3380,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Word"
+                  "$ref": "#/components/schemas/Teacher"
                 }
               }
             }
@@ -2839,7 +3418,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Teacher"
         ],
         "requestBody": {
           "description": "",
@@ -2847,14 +3426,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWord"
+                "$ref": "#/components/schemas/NewTeacher"
               }
             }
           }
         }
       }
     },
-    "/words/count": {
+    "/teachers/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -2906,12 +3485,12 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Teacher"
         ],
         "parameters": []
       }
     },
-    "/words/{id}": {
+    "/teachers/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -2921,7 +3500,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Word"
+                  "$ref": "#/components/schemas/Teacher"
                 }
               }
             }
@@ -2959,7 +3538,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Teacher"
         ],
         "parameters": [
           {
@@ -2983,7 +3562,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Word"
+                  "$ref": "#/components/schemas/Teacher"
                 }
               }
             }
@@ -3021,7 +3600,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Teacher"
         ],
         "requestBody": {
           "description": "",
@@ -3029,7 +3608,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewWord"
+                "$ref": "#/components/schemas/NewTeacher"
               }
             }
           }
@@ -3095,7 +3674,7 @@
         },
         "summary": "",
         "tags": [
-          "Word"
+          "Teacher"
         ],
         "parameters": [
           {
@@ -5280,9 +5859,6 @@
           "name": {
             "type": "string"
           },
-          "bookId": {
-            "type": "uid"
-          },
           "title": {
             "type": "string"
           },
@@ -5423,40 +5999,6 @@
           "text": {
             "type": "string"
           },
-          "profiles": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "setting": {
-                "type": "string"
-              },
-              "genderAssociation": {
-                "type": "string"
-              },
-              "realm": {
-                "type": "string"
-              },
-              "mood": {
-                "type": "string"
-              },
-              "characters": {
-                "type": "string"
-              },
-              "ending": {
-                "type": "string"
-              },
-              "interactions": {
-                "type": "string"
-              }
-            }
-          },
-          "readerFeedback": {
-            "type": "object"
-          },
           "currentReaders": {
             "required": [
               "id"
@@ -5468,18 +6010,6 @@
               "name": {
                 "type": "string"
               },
-              "schoolId": {
-                "type": "integer"
-              },
-              "kidId": {
-                "type": "uid"
-              },
-              "booksWritten": {
-                "type": "object"
-              },
-              "booksRead": {
-                "type": "object"
-              },
               "birthDate": {
                 "type": "string"
               },
@@ -5490,13 +6020,22 @@
                 "type": "integer"
               },
               "goods": {
+                "type": "string"
+              },
+              "books_read": {
+                "type": "string"
+              },
+              "books_writtens": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "profile": {
                 "type": "object"
               },
-              "profiles": {
-                "type": "string"
-              },
-              "classgroup": {
-                "type": "string"
+              "isOnline": {
+                "type": "boolean"
               }
             }
           },
@@ -5511,18 +6050,6 @@
               "name": {
                 "type": "string"
               },
-              "schoolId": {
-                "type": "integer"
-              },
-              "kidId": {
-                "type": "uid"
-              },
-              "booksWritten": {
-                "type": "object"
-              },
-              "booksRead": {
-                "type": "object"
-              },
               "birthDate": {
                 "type": "string"
               },
@@ -5533,15 +6060,27 @@
                 "type": "integer"
               },
               "goods": {
+                "type": "string"
+              },
+              "books_read": {
+                "type": "string"
+              },
+              "books_writtens": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "profile": {
                 "type": "object"
               },
-              "profiles": {
-                "type": "string"
-              },
-              "classgroup": {
-                "type": "string"
+              "isOnline": {
+                "type": "boolean"
               }
             }
+          },
+          "profile": {
+            "type": "object"
           }
         }
       },
@@ -5549,9 +6088,6 @@
         "properties": {
           "name": {
             "type": "string"
-          },
-          "bookId": {
-            "type": "uid"
           },
           "title": {
             "type": "string"
@@ -5568,21 +6104,18 @@
           "text": {
             "type": "string"
           },
-          "profiles": {
-            "type": "string"
-          },
-          "readerFeedback": {
-            "type": "object"
-          },
           "currentReaders": {
             "type": "string"
           },
           "pastReaders": {
             "type": "string"
+          },
+          "profile": {
+            "type": "object"
           }
         }
       },
-      "Card": {
+      "Cards": {
         "required": [
           "id"
         ],
@@ -5590,161 +6123,21 @@
           "id": {
             "type": "string"
           },
-          "setting": {
-            "type": "string",
-            "enum": [
-              "beach",
-              "forest",
-              "inside",
-              "urban",
-              "park",
-              "establishment",
-              "hospital",
-              "rural",
-              "sky",
-              "pricessFantasy",
-              "cartoonFantasy",
-              "university",
-              "school",
-              "social"
-            ]
+          "profile": {
+            "type": "object"
           },
-          "genderAssociation": {
-            "type": "string",
-            "enum": [
-              "girl",
-              "boy"
-            ]
-          },
-          "realm": {
-            "type": "string",
-            "enum": [
-              "reality",
-              "fantasy"
-            ]
-          },
-          "mood": {
-            "type": "string",
-            "enum": [
-              "scary",
-              "funny",
-              "bubbly",
-              "happy",
-              "suspense",
-              "drama",
-              "adventure"
-            ]
-          },
-          "characters": {
-            "type": "string",
-            "enum": [
-              "human",
-              "cartoonHuman",
-              "animal",
-              "cartoonAnimal",
-              "alien",
-              "cartoonRandom",
-              "object",
-              "spaceObject"
-            ]
-          },
-          "ending": {
-            "type": "string",
-            "enum": [
-              "happyEnding",
-              "suspenseEnding",
-              "suddenEnding"
-            ]
-          },
-          "interactions": {
-            "type": "string",
-            "enum": [
-              "socialFamily",
-              "socialFriends",
-              "socialAnimals",
-              "socialEnvironment",
-              "antisocial"
-            ]
+          "name": {
+            "type": "string"
           }
         }
       },
-      "NewCard": {
+      "NewCards": {
         "properties": {
-          "setting": {
-            "type": "string",
-            "enum": [
-              "beach",
-              "forest",
-              "inside",
-              "urban",
-              "park",
-              "establishment",
-              "hospital",
-              "rural",
-              "sky",
-              "pricessFantasy",
-              "cartoonFantasy",
-              "university",
-              "school",
-              "social"
-            ]
+          "profile": {
+            "type": "object"
           },
-          "genderAssociation": {
-            "type": "string",
-            "enum": [
-              "girl",
-              "boy"
-            ]
-          },
-          "realm": {
-            "type": "string",
-            "enum": [
-              "reality",
-              "fantasy"
-            ]
-          },
-          "mood": {
-            "type": "string",
-            "enum": [
-              "scary",
-              "funny",
-              "bubbly",
-              "happy",
-              "suspense",
-              "drama",
-              "adventure"
-            ]
-          },
-          "characters": {
-            "type": "string",
-            "enum": [
-              "human",
-              "cartoonHuman",
-              "animal",
-              "cartoonAnimal",
-              "alien",
-              "cartoonRandom",
-              "object",
-              "spaceObject"
-            ]
-          },
-          "ending": {
-            "type": "string",
-            "enum": [
-              "happyEnding",
-              "suspenseEnding",
-              "suddenEnding"
-            ]
-          },
-          "interactions": {
-            "type": "string",
-            "enum": [
-              "socialFamily",
-              "socialFriends",
-              "socialAnimals",
-              "socialEnvironment",
-              "antisocial"
-            ]
+          "name": {
+            "type": "string"
           }
         }
       },
@@ -5759,39 +6152,11 @@
           "ageRange": {
             "type": "integer"
           },
-          "classId": {
-            "type": "uid"
-          },
           "teacherName": {
             "type": "string"
           },
           "teacherMail": {
             "type": "string"
-          },
-          "schoolId": {
-            "type": "integer"
-          },
-          "words": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "word": {
-                "type": "string"
-              },
-              "ageRange": {
-                "type": "integer"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "wordId": {
-                "type": "uid"
-              }
-            }
           },
           "books": {
             "required": [
@@ -5803,9 +6168,6 @@
               },
               "name": {
                 "type": "string"
-              },
-              "bookId": {
-                "type": "uid"
               },
               "title": {
                 "type": "string"
@@ -5831,17 +6193,14 @@
               "text": {
                 "type": "string"
               },
-              "profiles": {
-                "type": "string"
-              },
-              "readerFeedback": {
-                "type": "object"
-              },
               "currentReaders": {
                 "type": "string"
               },
               "pastReaders": {
                 "type": "string"
+              },
+              "profile": {
+                "type": "object"
               }
             }
           },
@@ -5856,9 +6215,6 @@
               "name": {
                 "type": "string"
               },
-              "bookId": {
-                "type": "uid"
-              },
               "title": {
                 "type": "string"
               },
@@ -5883,19 +6239,72 @@
               "text": {
                 "type": "string"
               },
-              "profiles": {
-                "type": "string"
-              },
-              "readerFeedback": {
-                "type": "object"
-              },
               "currentReaders": {
                 "type": "string"
               },
               "pastReaders": {
                 "type": "string"
+              },
+              "profile": {
+                "type": "object"
               }
             }
+          },
+          "school": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "students": {
+                "type": "string"
+              }
+            }
+          },
+          "kid": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "birthDate": {
+                "type": "string"
+              },
+              "parentPhone": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "goods": {
+                "type": "string"
+              },
+              "books_read": {
+                "type": "string"
+              },
+              "books_writtens": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "object"
+              },
+              "isOnline": {
+                "type": "boolean"
+              }
+            }
+          },
+          "words": {
+            "type": "object"
           }
         }
       },
@@ -5904,19 +6313,10 @@
           "ageRange": {
             "type": "integer"
           },
-          "classId": {
-            "type": "uid"
-          },
           "teacherName": {
             "type": "string"
           },
           "teacherMail": {
-            "type": "string"
-          },
-          "schoolId": {
-            "type": "integer"
-          },
-          "words": {
             "type": "string"
           },
           "books": {
@@ -5924,6 +6324,114 @@
           },
           "kid_written_books": {
             "type": "string"
+          },
+          "school": {
+            "type": "string"
+          },
+          "kid": {
+            "type": "string"
+          },
+          "words": {
+            "type": "object"
+          }
+        }
+      },
+      "Goods": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "cover": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              }
+            }
+          },
+          "forBook": {
+            "type": "boolean"
+          }
+        }
+      },
+      "NewGoods": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "forBook": {
+            "type": "boolean"
           }
         }
       },
@@ -5938,18 +6446,6 @@
           "name": {
             "type": "string"
           },
-          "schoolId": {
-            "type": "integer"
-          },
-          "kidId": {
-            "type": "uid"
-          },
-          "booksWritten": {
-            "type": "object"
-          },
-          "booksRead": {
-            "type": "object"
-          },
           "birthDate": {
             "type": "string"
           },
@@ -5960,9 +6456,6 @@
             "type": "integer"
           },
           "goods": {
-            "type": "object"
-          },
-          "profiles": {
             "required": [
               "id"
             ],
@@ -5970,30 +6463,116 @@
               "id": {
                 "type": "string"
               },
-              "setting": {
+              "name": {
                 "type": "string"
               },
-              "genderAssociation": {
+              "description": {
                 "type": "string"
               },
-              "realm": {
+              "price": {
+                "type": "number"
+              },
+              "cover": {
                 "type": "string"
               },
-              "mood": {
-                "type": "string"
-              },
-              "characters": {
-                "type": "string"
-              },
-              "ending": {
-                "type": "string"
-              },
-              "interactions": {
-                "type": "string"
+              "forBook": {
+                "type": "boolean"
               }
             }
           },
-          "classgroup": {
+          "books_read": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "blurb": {
+                "type": "string"
+              },
+              "cover": {
+                "type": "string"
+              },
+              "pdfVersion": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "author": {
+                "type": "string"
+              },
+              "kidMade": {
+                "type": "boolean"
+              },
+              "text": {
+                "type": "string"
+              },
+              "currentReaders": {
+                "type": "string"
+              },
+              "pastReaders": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "object"
+              }
+            }
+          },
+          "books_writtens": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "blurb": {
+                "type": "string"
+              },
+              "cover": {
+                "type": "string"
+              },
+              "pdfVersion": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "author": {
+                "type": "string"
+              },
+              "kidMade": {
+                "type": "boolean"
+              },
+              "text": {
+                "type": "string"
+              },
+              "currentReaders": {
+                "type": "string"
+              },
+              "pastReaders": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "object"
+              }
+            }
+          },
+          "class": {
             "required": [
               "id"
             ],
@@ -6004,19 +6583,10 @@
               "ageRange": {
                 "type": "integer"
               },
-              "classId": {
-                "type": "uid"
-              },
               "teacherName": {
                 "type": "string"
               },
               "teacherMail": {
-                "type": "string"
-              },
-              "schoolId": {
-                "type": "integer"
-              },
-              "words": {
                 "type": "string"
               },
               "books": {
@@ -6024,8 +6594,23 @@
               },
               "kid_written_books": {
                 "type": "string"
+              },
+              "school": {
+                "type": "string"
+              },
+              "kid": {
+                "type": "string"
+              },
+              "words": {
+                "type": "object"
               }
             }
+          },
+          "profile": {
+            "type": "object"
+          },
+          "isOnline": {
+            "type": "boolean"
           }
         }
       },
@@ -6033,18 +6618,6 @@
         "properties": {
           "name": {
             "type": "string"
-          },
-          "schoolId": {
-            "type": "integer"
-          },
-          "kidId": {
-            "type": "uid"
-          },
-          "booksWritten": {
-            "type": "object"
-          },
-          "booksRead": {
-            "type": "object"
           },
           "birthDate": {
             "type": "string"
@@ -6056,13 +6629,22 @@
             "type": "integer"
           },
           "goods": {
+            "type": "string"
+          },
+          "books_read": {
+            "type": "string"
+          },
+          "books_writtens": {
+            "type": "string"
+          },
+          "class": {
+            "type": "string"
+          },
+          "profile": {
             "type": "object"
           },
-          "profiles": {
-            "type": "string"
-          },
-          "classgroup": {
-            "type": "string"
+          "isOnline": {
+            "type": "boolean"
           }
         }
       },
@@ -6074,33 +6656,7 @@
           "id": {
             "type": "string"
           },
-          "schoolId": {
-            "type": "uid"
-          }
-        }
-      },
-      "NewSchool": {
-        "properties": {
-          "schoolId": {
-            "type": "uid"
-          }
-        }
-      },
-      "Word": {
-        "required": [
-          "id"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "word": {
-            "type": "string"
-          },
-          "ageRange": {
-            "type": "integer"
-          },
-          "profile": {
+          "students": {
             "required": [
               "id"
             ],
@@ -6108,47 +6664,119 @@
               "id": {
                 "type": "string"
               },
-              "setting": {
+              "name": {
                 "type": "string"
               },
-              "genderAssociation": {
+              "birthDate": {
                 "type": "string"
               },
-              "realm": {
+              "parentPhone": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "goods": {
                 "type": "string"
               },
-              "mood": {
+              "books_read": {
                 "type": "string"
               },
-              "characters": {
+              "books_writtens": {
                 "type": "string"
               },
-              "ending": {
+              "class": {
                 "type": "string"
               },
-              "interactions": {
-                "type": "string"
+              "profile": {
+                "type": "object"
+              },
+              "isOnline": {
+                "type": "boolean"
               }
             }
-          },
-          "wordId": {
-            "type": "uid"
           }
         }
       },
-      "NewWord": {
+      "NewSchool": {
         "properties": {
-          "word": {
+          "students": {
+            "type": "string"
+          }
+        }
+      },
+      "Teacher": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
             "type": "string"
           },
-          "ageRange": {
-            "type": "integer"
-          },
-          "profile": {
+          "email": {
             "type": "string"
           },
-          "wordId": {
-            "type": "uid"
+          "name": {
+            "type": "string"
+          },
+          "chosen_books": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "blurb": {
+                "type": "string"
+              },
+              "cover": {
+                "type": "string"
+              },
+              "pdfVersion": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "author": {
+                "type": "string"
+              },
+              "kidMade": {
+                "type": "boolean"
+              },
+              "text": {
+                "type": "string"
+              },
+              "currentReaders": {
+                "type": "string"
+              },
+              "pastReaders": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "NewTeacher": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "chosen_books": {
+            "type": "string"
           }
         }
       },
@@ -6405,10 +7033,13 @@
       "name": "Book"
     },
     {
-      "name": "Card"
+      "name": "Cards"
     },
     {
       "name": "Classgroup"
+    },
+    {
+      "name": "Goods"
     },
     {
       "name": "Kid"
@@ -6417,7 +7048,7 @@
       "name": "School"
     },
     {
-      "name": "Word"
+      "name": "Teacher"
     },
     {
       "name": "Email - Email"

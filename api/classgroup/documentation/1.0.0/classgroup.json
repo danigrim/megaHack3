@@ -525,39 +525,11 @@
           "ageRange": {
             "type": "integer"
           },
-          "classId": {
-            "type": "uid"
-          },
           "teacherName": {
             "type": "string"
           },
           "teacherMail": {
             "type": "string"
-          },
-          "schoolId": {
-            "type": "integer"
-          },
-          "words": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "word": {
-                "type": "string"
-              },
-              "ageRange": {
-                "type": "integer"
-              },
-              "profile": {
-                "type": "string"
-              },
-              "wordId": {
-                "type": "uid"
-              }
-            }
           },
           "books": {
             "required": [
@@ -569,9 +541,6 @@
               },
               "name": {
                 "type": "string"
-              },
-              "bookId": {
-                "type": "uid"
               },
               "title": {
                 "type": "string"
@@ -597,17 +566,14 @@
               "text": {
                 "type": "string"
               },
-              "profiles": {
-                "type": "string"
-              },
-              "readerFeedback": {
-                "type": "object"
-              },
               "currentReaders": {
                 "type": "string"
               },
               "pastReaders": {
                 "type": "string"
+              },
+              "profile": {
+                "type": "object"
               }
             }
           },
@@ -622,9 +588,6 @@
               "name": {
                 "type": "string"
               },
-              "bookId": {
-                "type": "uid"
-              },
               "title": {
                 "type": "string"
               },
@@ -649,19 +612,72 @@
               "text": {
                 "type": "string"
               },
-              "profiles": {
-                "type": "string"
-              },
-              "readerFeedback": {
-                "type": "object"
-              },
               "currentReaders": {
                 "type": "string"
               },
               "pastReaders": {
                 "type": "string"
+              },
+              "profile": {
+                "type": "object"
               }
             }
+          },
+          "school": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "students": {
+                "type": "string"
+              }
+            }
+          },
+          "kid": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "birthDate": {
+                "type": "string"
+              },
+              "parentPhone": {
+                "type": "integer"
+              },
+              "coins": {
+                "type": "integer"
+              },
+              "goods": {
+                "type": "string"
+              },
+              "books_read": {
+                "type": "string"
+              },
+              "books_writtens": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "object"
+              },
+              "isOnline": {
+                "type": "boolean"
+              }
+            }
+          },
+          "words": {
+            "type": "object"
           }
         }
       },
@@ -670,19 +686,10 @@
           "ageRange": {
             "type": "integer"
           },
-          "classId": {
-            "type": "uid"
-          },
           "teacherName": {
             "type": "string"
           },
           "teacherMail": {
-            "type": "string"
-          },
-          "schoolId": {
-            "type": "integer"
-          },
-          "words": {
             "type": "string"
           },
           "books": {
@@ -690,6 +697,15 @@
           },
           "kid_written_books": {
             "type": "string"
+          },
+          "school": {
+            "type": "string"
+          },
+          "kid": {
+            "type": "string"
+          },
+          "words": {
+            "type": "object"
           }
         }
       }

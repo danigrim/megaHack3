@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/cards",
-      "handler": "card.find",
+      "handler": "cards.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/cards/count",
-      "handler": "card.count",
+      "handler": "cards.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/cards/:id",
-      "handler": "card.findOne",
+      "handler": "cards.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/cards",
-      "handler": "card.create",
+      "handler": "cards.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/cards/:id",
-      "handler": "card.update",
+      "handler": "cards.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/cards/:id",
-      "handler": "card.delete",
+      "handler": "cards.delete",
       "config": {
         "policies": []
       }

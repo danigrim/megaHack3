@@ -2,59 +2,51 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/kids",
-      "handler": "kid.find",
+      "path": "/goods",
+      "handler": "goods.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/kids/count",
-      "handler": "kid.count",
+      "path": "/goods/count",
+      "handler": "goods.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/kids/:id",
-      "handler": "kid.findOne",
+      "path": "/goods/:id",
+      "handler": "goods.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/kids",
-      "handler": "kid.create",
+      "path": "/goods",
+      "handler": "goods.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/kids/:id",
-      "handler": "kid.update",
+      "path": "/goods/:id",
+      "handler": "goods.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/kids/:id",
-      "handler": "kid.delete",
+      "path": "/goods/:id",
+      "handler": "goods.delete",
       "config": {
         "policies": []
       }
-    }, 
-     {
-       "method": "GET",
-       "path": "/kids/recommend/:id",
-       "handler": "kid.recommendBooks",
-       "config": {
-         "policies": []
-       }
-     }
+    }
   ]
 }

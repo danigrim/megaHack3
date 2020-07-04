@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/books": {
+    "/teachers": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Book"
+                    "$ref": "#/components/schemas/Teacher"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Teacher"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Book"
+                  "$ref": "#/components/schemas/Teacher"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Teacher"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBook"
+                "$ref": "#/components/schemas/NewTeacher"
               }
             }
           }
         }
       }
     },
-    "/books/count": {
+    "/teachers/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Teacher"
         ],
         "parameters": []
       }
     },
-    "/books/{id}": {
+    "/teachers/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Book"
+                  "$ref": "#/components/schemas/Teacher"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Teacher"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Book"
+                  "$ref": "#/components/schemas/Teacher"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Teacher"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBook"
+                "$ref": "#/components/schemas/NewTeacher"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Teacher"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Book": {
+      "Teacher": {
         "required": [
           "id"
         ],
@@ -522,24 +522,15 @@
           "id": {
             "type": "string"
           },
+          "email": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
-          "title": {
-            "type": "string"
-          },
-          "blurb": {
-            "type": "string"
-          },
-          "cover": {
+          "chosen_books": {
             "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "id"
             ],
             "properties": {
               "id": {
@@ -548,236 +539,53 @@
               "name": {
                 "type": "string"
               },
-              "alternativeText": {
+              "title": {
                 "type": "string"
               },
-              "caption": {
+              "blurb": {
                 "type": "string"
               },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
+              "cover": {
                 "type": "string"
               },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              }
-            }
-          },
-          "pdfVersion": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
+              "pdfVersion": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "author": {
-            "type": "string"
-          },
-          "kidMade": {
-            "type": "boolean"
-          },
-          "text": {
-            "type": "string"
-          },
-          "currentReaders": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
+              },
+              "author": {
                 "type": "string"
               },
-              "name": {
+              "kidMade": {
+                "type": "boolean"
+              },
+              "text": {
                 "type": "string"
               },
-              "birthDate": {
+              "currentReaders": {
                 "type": "string"
               },
-              "parentPhone": {
-                "type": "integer"
-              },
-              "coins": {
-                "type": "integer"
-              },
-              "goods": {
-                "type": "string"
-              },
-              "books_read": {
-                "type": "string"
-              },
-              "books_writtens": {
-                "type": "string"
-              },
-              "class": {
+              "pastReaders": {
                 "type": "string"
               },
               "profile": {
                 "type": "object"
-              },
-              "isOnline": {
-                "type": "boolean"
               }
             }
-          },
-          "pastReaders": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "birthDate": {
-                "type": "string"
-              },
-              "parentPhone": {
-                "type": "integer"
-              },
-              "coins": {
-                "type": "integer"
-              },
-              "goods": {
-                "type": "string"
-              },
-              "books_read": {
-                "type": "string"
-              },
-              "books_writtens": {
-                "type": "string"
-              },
-              "class": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "object"
-              },
-              "isOnline": {
-                "type": "boolean"
-              }
-            }
-          },
-          "profile": {
-            "type": "object"
           }
         }
       },
-      "NewBook": {
+      "NewTeacher": {
         "properties": {
+          "email": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
-          "title": {
+          "chosen_books": {
             "type": "string"
-          },
-          "blurb": {
-            "type": "string"
-          },
-          "author": {
-            "type": "string"
-          },
-          "kidMade": {
-            "type": "boolean"
-          },
-          "text": {
-            "type": "string"
-          },
-          "currentReaders": {
-            "type": "string"
-          },
-          "pastReaders": {
-            "type": "string"
-          },
-          "profile": {
-            "type": "object"
           }
         }
       }
@@ -785,7 +593,7 @@
   },
   "tags": [
     {
-      "name": "Book"
+      "name": "Teacher"
     }
   ]
 }

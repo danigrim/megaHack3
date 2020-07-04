@@ -13,6 +13,10 @@
   "dependencies": {
     "3": "^2.1.0",
     "-": "0.0.1",
+    "@google-cloud/storage": "^5.1.1",
+    "euclidean-distance": "^1.0.0",
+    "firebase-admin": "^8.13.0",
+    "google-cloud-storage": "^2.0.2",
     "jquery": "^1.9.1",
     "knex": "^0.20.15",
     "sqlite3": "latest",
