@@ -28,8 +28,8 @@
       "model": "school"
     },
     "kid": {
-      "model": "kid",
-      "via": "class"
+      "via": "class",
+      "model": "kid"
     },
     "words": {
       "type": "json"

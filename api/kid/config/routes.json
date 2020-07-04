@@ -55,6 +55,14 @@
        "config": {
          "policies": []
        }
-     }
+     },
+     {
+      "method": "POST",
+      "path": "/kids/cards/:id",
+      "handler": "kid.makeProfile",
+      "config": {
+        "policies": []
+      }
+    }
   ]
 }

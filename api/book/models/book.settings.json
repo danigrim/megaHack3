@@ -57,6 +57,9 @@
     },
     "profile": {
       "type": "json"
+    },
+    "ageRange": {
+      "type": "integer"
     }
   }
 }

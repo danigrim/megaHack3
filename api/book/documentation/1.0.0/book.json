@@ -525,9 +525,6 @@
           "name": {
             "type": "string"
           },
-          "bookId": {
-            "type": "uid"
-          },
           "title": {
             "type": "string"
           },
@@ -668,40 +665,6 @@
           "text": {
             "type": "string"
           },
-          "profiles": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "setting": {
-                "type": "string"
-              },
-              "genderAssociation": {
-                "type": "string"
-              },
-              "realm": {
-                "type": "string"
-              },
-              "mood": {
-                "type": "string"
-              },
-              "characters": {
-                "type": "string"
-              },
-              "ending": {
-                "type": "string"
-              },
-              "interactions": {
-                "type": "string"
-              }
-            }
-          },
-          "readerFeedback": {
-            "type": "object"
-          },
           "currentReaders": {
             "required": [
               "id"
@@ -713,18 +676,6 @@
               "name": {
                 "type": "string"
               },
-              "schoolId": {
-                "type": "integer"
-              },
-              "kidId": {
-                "type": "uid"
-              },
-              "booksWritten": {
-                "type": "object"
-              },
-              "booksRead": {
-                "type": "object"
-              },
               "birthDate": {
                 "type": "string"
               },
@@ -735,13 +686,25 @@
                 "type": "integer"
               },
               "goods": {
+                "type": "string"
+              },
+              "books_read": {
+                "type": "string"
+              },
+              "books_writtens": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "profile": {
                 "type": "object"
               },
-              "profiles": {
-                "type": "string"
+              "isOnline": {
+                "type": "boolean"
               },
-              "classgroup": {
-                "type": "string"
+              "ageRange": {
+                "type": "integer"
               }
             }
           },
@@ -756,18 +719,6 @@
               "name": {
                 "type": "string"
               },
-              "schoolId": {
-                "type": "integer"
-              },
-              "kidId": {
-                "type": "uid"
-              },
-              "booksWritten": {
-                "type": "object"
-              },
-              "booksRead": {
-                "type": "object"
-              },
               "birthDate": {
                 "type": "string"
               },
@@ -778,15 +729,33 @@
                 "type": "integer"
               },
               "goods": {
+                "type": "string"
+              },
+              "books_read": {
+                "type": "string"
+              },
+              "books_writtens": {
+                "type": "string"
+              },
+              "class": {
+                "type": "string"
+              },
+              "profile": {
                 "type": "object"
               },
-              "profiles": {
-                "type": "string"
+              "isOnline": {
+                "type": "boolean"
               },
-              "classgroup": {
-                "type": "string"
+              "ageRange": {
+                "type": "integer"
               }
             }
+          },
+          "profile": {
+            "type": "object"
+          },
+          "ageRange": {
+            "type": "integer"
           }
         }
       },
@@ -794,9 +763,6 @@
         "properties": {
           "name": {
             "type": "string"
-          },
-          "bookId": {
-            "type": "uid"
           },
           "title": {
             "type": "string"
@@ -813,17 +779,17 @@
           "text": {
             "type": "string"
           },
-          "profiles": {
-            "type": "string"
-          },
-          "readerFeedback": {
-            "type": "object"
-          },
           "currentReaders": {
             "type": "string"
           },
           "pastReaders": {
             "type": "string"
+          },
+          "profile": {
+            "type": "object"
+          },
+          "ageRange": {
+            "type": "integer"
           }
         }
       }

@@ -571,6 +571,9 @@
               },
               "profile": {
                 "type": "object"
+              },
+              "ageRange": {
+                "type": "integer"
               }
             }
           }

@@ -31,14 +31,17 @@
       "collection": "book"
     },
     "class": {
-      "via": "kid",
-      "model": "classgroup"
+      "model": "classgroup",
+      "via": "kid"
     },
     "profile": {
       "type": "json"
     },
     "isOnline": {
       "type": "boolean"
+    },
+    "ageRange": {
+      "type": "integer"
     }
   }
 }
