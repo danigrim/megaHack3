@@ -1,14 +1,15 @@
+
 module.exports = ({ env }) => ({
   defaultConnection: 'default',
   connections: {
     default: {
-      connector: 'bookshelf',
+      connector: 'mongoose',
       settings: {
-        client: 'sqlite',
-        filename: env('DATABASE_FILENAME', '.tmp/data.db'),
+        client: 'mongo',
+        uri: `mongodb+srv://${env('USERNAME', '')}:${env('PASSWORD', '')}@clustermega.3byam.gcp.mongodb.net/${env('DATABASENAME', '')}?retryWrites=true&w=majority`,
       },
       options: {
-        useNullAsDefault: true,
+        ssl: true,
       },
     },
   },

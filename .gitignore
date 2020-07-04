@@ -108,6 +108,7 @@ coverage
 ############################
 
 .env
+.env.local
 exports
 .cache
 build

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "words",
+  "info": {
+    "name": "word"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "word": {
+      "type": "string"
+    },
+    "ageRange": {
+      "type": "biginteger"
+    },
+    "profile": {
+      "model": "card"
+    },
+    "wordId": {
+      "type": "uid"
+    }
+  }
+}

@@ -38,6 +38,9 @@
     },
     "profiles": {
       "collection": "card"
+    },
+    "classgroup": {
+      "model": "classgroup"
     }
   }
 }

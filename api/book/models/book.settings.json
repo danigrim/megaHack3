@@ -49,20 +49,20 @@
     "kidMade": {
       "type": "boolean"
     },
-    "currentReaders": {
-      "type": "json"
-    },
     "text": {
       "type": "richtext"
     },
     "profiles": {
       "collection": "card"
     },
-    "pastReaders": {
-      "type": "json"
-    },
     "readerFeedback": {
       "type": "json"
+    },
+    "currentReaders": {
+      "collection": "kid"
+    },
+    "pastReaders": {
+      "collection": "kid"
     }
   }
 }

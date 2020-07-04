@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classgroups",
+  "info": {
+    "name": "classgroup"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "ageRange": {
+      "type": "biginteger"
+    },
+    "classId": {
+      "type": "uid"
+    },
+    "teacherName": {
+      "type": "string"
+    },
+    "teacherMail": {
+      "type": "email"
+    },
+    "schoolId": {
+      "type": "biginteger"
+    },
+    "words": {
+      "collection": "word"
+    },
+    "books": {
+      "collection": "book"
+    },
+    "kid_written_books": {
+      "collection": "book"
+    }
+  }
+}
