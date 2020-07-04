@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/books": {
+    "/cards": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Book"
+                    "$ref": "#/components/schemas/Card"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Card"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Book"
+                  "$ref": "#/components/schemas/Card"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Card"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBook"
+                "$ref": "#/components/schemas/NewCard"
               }
             }
           }
         }
       }
     },
-    "/books/count": {
+    "/cards/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Card"
         ],
         "parameters": []
       }
     },
-    "/books/{id}": {
+    "/cards/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Book"
+                  "$ref": "#/components/schemas/Card"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Card"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Book"
+                  "$ref": "#/components/schemas/Card"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Card"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBook"
+                "$ref": "#/components/schemas/NewCard"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Book"
+          "Card"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Book": {
+      "Card": {
         "required": [
           "id"
         ],
@@ -522,308 +522,161 @@
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
+          "setting": {
+            "type": "string",
+            "enum": [
+              "beach",
+              "forest",
+              "inside",
+              "urban",
+              "park",
+              "establishment",
+              "hospital",
+              "rural",
+              "sky",
+              "pricessFantasy",
+              "cartoonFantasy",
+              "university",
+              "school",
+              "social"
+            ]
           },
-          "bookId": {
-            "type": "uid"
+          "genderAssociation": {
+            "type": "string",
+            "enum": [
+              "girl",
+              "boy"
+            ]
           },
-          "title": {
-            "type": "string"
+          "realm": {
+            "type": "string",
+            "enum": [
+              "reality",
+              "fantasy"
+            ]
           },
-          "blurb": {
-            "type": "string"
+          "mood": {
+            "type": "string",
+            "enum": [
+              "scary",
+              "funny",
+              "bubbly",
+              "happy",
+              "suspense",
+              "drama",
+              "adventure"
+            ]
           },
-          "cover": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              }
-            }
+          "characters": {
+            "type": "string",
+            "enum": [
+              "human",
+              "cartoonHuman",
+              "animal",
+              "cartoonAnimal",
+              "alien",
+              "cartoonRandom",
+              "object",
+              "spaceObject"
+            ]
           },
-          "pdfVersion": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                }
-              }
-            }
+          "ending": {
+            "type": "string",
+            "enum": [
+              "happyEnding",
+              "suspenseEnding",
+              "suddenEnding"
+            ]
           },
-          "author": {
-            "type": "string"
-          },
-          "kidMade": {
-            "type": "boolean"
-          },
-          "text": {
-            "type": "string"
-          },
-          "profiles": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "setting": {
-                "type": "string"
-              },
-              "genderAssociation": {
-                "type": "string"
-              },
-              "realm": {
-                "type": "string"
-              },
-              "mood": {
-                "type": "string"
-              },
-              "characters": {
-                "type": "string"
-              },
-              "ending": {
-                "type": "string"
-              },
-              "interactions": {
-                "type": "string"
-              }
-            }
-          },
-          "readerFeedback": {
-            "type": "object"
-          },
-          "currentReaders": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "schoolId": {
-                "type": "integer"
-              },
-              "kidId": {
-                "type": "uid"
-              },
-              "booksWritten": {
-                "type": "object"
-              },
-              "booksRead": {
-                "type": "object"
-              },
-              "birthDate": {
-                "type": "string"
-              },
-              "parentPhone": {
-                "type": "integer"
-              },
-              "coins": {
-                "type": "integer"
-              },
-              "goods": {
-                "type": "object"
-              },
-              "profiles": {
-                "type": "string"
-              },
-              "classgroup": {
-                "type": "string"
-              }
-            }
-          },
-          "pastReaders": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "schoolId": {
-                "type": "integer"
-              },
-              "kidId": {
-                "type": "uid"
-              },
-              "booksWritten": {
-                "type": "object"
-              },
-              "booksRead": {
-                "type": "object"
-              },
-              "birthDate": {
-                "type": "string"
-              },
-              "parentPhone": {
-                "type": "integer"
-              },
-              "coins": {
-                "type": "integer"
-              },
-              "goods": {
-                "type": "object"
-              },
-              "profiles": {
-                "type": "string"
-              },
-              "classgroup": {
-                "type": "string"
-              }
-            }
+          "interactions": {
+            "type": "string",
+            "enum": [
+              "socialFamily",
+              "socialFriends",
+              "socialAnimals",
+              "socialEnvironment",
+              "antisocial"
+            ]
           }
         }
       },
-      "NewBook": {
+      "NewCard": {
         "properties": {
-          "name": {
-            "type": "string"
+          "setting": {
+            "type": "string",
+            "enum": [
+              "beach",
+              "forest",
+              "inside",
+              "urban",
+              "park",
+              "establishment",
+              "hospital",
+              "rural",
+              "sky",
+              "pricessFantasy",
+              "cartoonFantasy",
+              "university",
+              "school",
+              "social"
+            ]
           },
-          "bookId": {
-            "type": "uid"
+          "genderAssociation": {
+            "type": "string",
+            "enum": [
+              "girl",
+              "boy"
+            ]
           },
-          "title": {
-            "type": "string"
+          "realm": {
+            "type": "string",
+            "enum": [
+              "reality",
+              "fantasy"
+            ]
           },
-          "blurb": {
-            "type": "string"
+          "mood": {
+            "type": "string",
+            "enum": [
+              "scary",
+              "funny",
+              "bubbly",
+              "happy",
+              "suspense",
+              "drama",
+              "adventure"
+            ]
           },
-          "author": {
-            "type": "string"
+          "characters": {
+            "type": "string",
+            "enum": [
+              "human",
+              "cartoonHuman",
+              "animal",
+              "cartoonAnimal",
+              "alien",
+              "cartoonRandom",
+              "object",
+              "spaceObject"
+            ]
           },
-          "kidMade": {
-            "type": "boolean"
+          "ending": {
+            "type": "string",
+            "enum": [
+              "happyEnding",
+              "suspenseEnding",
+              "suddenEnding"
+            ]
           },
-          "text": {
-            "type": "string"
-          },
-          "profiles": {
-            "type": "string"
-          },
-          "readerFeedback": {
-            "type": "object"
-          },
-          "currentReaders": {
-            "type": "string"
-          },
-          "pastReaders": {
-            "type": "string"
+          "interactions": {
+            "type": "string",
+            "enum": [
+              "socialFamily",
+              "socialFriends",
+              "socialAnimals",
+              "socialEnvironment",
+              "antisocial"
+            ]
           }
         }
       }
@@ -831,7 +684,7 @@
   },
   "tags": [
     {
-      "name": "Book"
+      "name": "Card"
     }
   ]
 }

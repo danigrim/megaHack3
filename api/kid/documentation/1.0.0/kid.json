@@ -510,74 +510,6 @@
           }
         ]
       }
-    },
-    "/kids/recommend/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Kid"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
     }
   },
   "components": {
@@ -593,6 +525,18 @@
           "name": {
             "type": "string"
           },
+          "schoolId": {
+            "type": "integer"
+          },
+          "kidId": {
+            "type": "uid"
+          },
+          "booksWritten": {
+            "type": "object"
+          },
+          "booksRead": {
+            "type": "object"
+          },
           "birthDate": {
             "type": "string"
           },
@@ -603,6 +547,9 @@
             "type": "integer"
           },
           "goods": {
+            "type": "object"
+          },
+          "profiles": {
             "required": [
               "id"
             ],
@@ -610,116 +557,30 @@
               "id": {
                 "type": "string"
               },
-              "name": {
+              "setting": {
                 "type": "string"
               },
-              "description": {
+              "genderAssociation": {
                 "type": "string"
               },
-              "price": {
-                "type": "number"
-              },
-              "cover": {
+              "realm": {
                 "type": "string"
               },
-              "forBook": {
-                "type": "boolean"
+              "mood": {
+                "type": "string"
+              },
+              "characters": {
+                "type": "string"
+              },
+              "ending": {
+                "type": "string"
+              },
+              "interactions": {
+                "type": "string"
               }
             }
           },
-          "books_read": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "blurb": {
-                "type": "string"
-              },
-              "cover": {
-                "type": "string"
-              },
-              "pdfVersion": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "author": {
-                "type": "string"
-              },
-              "kidMade": {
-                "type": "boolean"
-              },
-              "text": {
-                "type": "string"
-              },
-              "currentReaders": {
-                "type": "string"
-              },
-              "pastReaders": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "object"
-              }
-            }
-          },
-          "books_writtens": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "blurb": {
-                "type": "string"
-              },
-              "cover": {
-                "type": "string"
-              },
-              "pdfVersion": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "author": {
-                "type": "string"
-              },
-              "kidMade": {
-                "type": "boolean"
-              },
-              "text": {
-                "type": "string"
-              },
-              "currentReaders": {
-                "type": "string"
-              },
-              "pastReaders": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "object"
-              }
-            }
-          },
-          "class": {
+          "classgroup": {
             "required": [
               "id"
             ],
@@ -730,10 +591,19 @@
               "ageRange": {
                 "type": "integer"
               },
+              "classId": {
+                "type": "uid"
+              },
               "teacherName": {
                 "type": "string"
               },
               "teacherMail": {
+                "type": "string"
+              },
+              "schoolId": {
+                "type": "integer"
+              },
+              "words": {
                 "type": "string"
               },
               "books": {
@@ -741,23 +611,8 @@
               },
               "kid_written_books": {
                 "type": "string"
-              },
-              "school": {
-                "type": "string"
-              },
-              "kid": {
-                "type": "string"
-              },
-              "words": {
-                "type": "object"
               }
             }
-          },
-          "profile": {
-            "type": "object"
-          },
-          "isOnline": {
-            "type": "boolean"
           }
         }
       },
@@ -765,6 +620,18 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "schoolId": {
+            "type": "integer"
+          },
+          "kidId": {
+            "type": "uid"
+          },
+          "booksWritten": {
+            "type": "object"
+          },
+          "booksRead": {
+            "type": "object"
           },
           "birthDate": {
             "type": "string"
@@ -776,22 +643,13 @@
             "type": "integer"
           },
           "goods": {
-            "type": "string"
-          },
-          "books_read": {
-            "type": "string"
-          },
-          "books_writtens": {
-            "type": "string"
-          },
-          "class": {
-            "type": "string"
-          },
-          "profile": {
             "type": "object"
           },
-          "isOnline": {
-            "type": "boolean"
+          "profiles": {
+            "type": "string"
+          },
+          "classgroup": {
+            "type": "string"
           }
         }
       }

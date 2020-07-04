@@ -522,52 +522,15 @@
           "id": {
             "type": "string"
           },
-          "students": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "birthDate": {
-                "type": "string"
-              },
-              "parentPhone": {
-                "type": "integer"
-              },
-              "coins": {
-                "type": "integer"
-              },
-              "goods": {
-                "type": "string"
-              },
-              "books_read": {
-                "type": "string"
-              },
-              "books_writtens": {
-                "type": "string"
-              },
-              "class": {
-                "type": "string"
-              },
-              "profile": {
-                "type": "object"
-              },
-              "isOnline": {
-                "type": "boolean"
-              }
-            }
+          "schoolId": {
+            "type": "uid"
           }
         }
       },
       "NewSchool": {
         "properties": {
-          "students": {
-            "type": "string"
+          "schoolId": {
+            "type": "uid"
           }
         }
       }
