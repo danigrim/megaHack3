@@ -70,9 +70,9 @@ module.exports = {
 
     /**
      * Função recebe id de aluno, gera lista de palavras baseadas no livro indicado pelo professor
-     * reduzindo a lista para remover palavras parecidas/identicas, determinado pelo modelo JaroWinkler
-     * que calcula a similaridade entre palavras
-     * 
+     * reduzindo a lista para remover palavras parecidas/identicas.
+     * Remove todas as palavras com similaridade acima do nível 0.9 (como definido pelo padrão de JaronWinklerDistance)
+     * @returns lista de palavras
      */
     getWords: async ctx => {
         try{
@@ -93,11 +93,10 @@ module.exports = {
       })
       await Promise.all(bookPromises)
       const reducedList = wordList.filter((word1, i) => {
-          console.log('in reducer loop')
         let unique = true
         for(var w = i+1; w<wordList.length; w++){
           let wordProximity = natural.JaroWinklerDistance(word1.toLowerCase(), wordList[w].toLowerCase())
-          if(wordProximity > 0.85){
+          if(wordProximity > 0.90){
             unique = false
             break;
           }
