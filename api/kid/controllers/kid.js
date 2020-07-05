@@ -22,7 +22,7 @@ module.exports = {
     const rank = []
     books.forEach((book)=> {
       let d = distance(profile.profile, book.profile.profile)
-      recs[d] = recs[d] ? recs[d].push({title: book.title, id: book._id}) : recs[d] = [{title: book.title, id: book._id}]
+      recs[d] = recs[d] ? recs[d].push({title: book.title, id: book._id, cover: book.cover}) : recs[d] = [{title: book.title, id: book._id, cover:book.cover}]
     })
      Object.keys(recs).sort().map((dist, i) => {
         rank[i] = recs[dist]
