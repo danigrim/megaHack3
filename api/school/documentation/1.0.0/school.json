@@ -540,9 +540,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "number"
+                "type": "integer"
               },
-              "goods_owned": {
+              "goods": {
                 "type": "string"
               },
               "books_read": {
