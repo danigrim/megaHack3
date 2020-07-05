@@ -63,6 +63,22 @@
       "config": {
         "policies": []
       }
+    }, 
+    {
+      "method": "POST",
+      "path": "/kids/friend/:id",
+      "handler": "kid.makeProfile",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/kids/words/:id",
+      "handler": "kid.getWords",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

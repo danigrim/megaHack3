@@ -15,9 +15,6 @@
     "title": {
       "type": "string"
     },
-    "blurb": {
-      "type": "richtext"
-    },
     "cover": {
       "model": "file",
       "via": "related",
@@ -59,7 +56,10 @@
       "type": "json"
     },
     "ageRange": {
-      "type": "integer"
+      "type": "biginteger"
+    },
+    "blurb": {
+      "type": "string"
     }
   }
 }

@@ -528,9 +528,6 @@
           "title": {
             "type": "string"
           },
-          "blurb": {
-            "type": "string"
-          },
           "cover": {
             "required": [
               "id",
@@ -703,8 +700,14 @@
               "isOnline": {
                 "type": "boolean"
               },
+              "numProfilings": {
+                "type": "integer"
+              },
               "ageRange": {
                 "type": "integer"
+              },
+              "profilepicture": {
+                "type": "string"
               }
             }
           },
@@ -746,8 +749,14 @@
               "isOnline": {
                 "type": "boolean"
               },
+              "numProfilings": {
+                "type": "integer"
+              },
               "ageRange": {
                 "type": "integer"
+              },
+              "profilepicture": {
+                "type": "string"
               }
             }
           },
@@ -756,6 +765,9 @@
           },
           "ageRange": {
             "type": "integer"
+          },
+          "blurb": {
+            "type": "string"
           }
         }
       },
@@ -765,9 +777,6 @@
             "type": "string"
           },
           "title": {
-            "type": "string"
-          },
-          "blurb": {
             "type": "string"
           },
           "author": {
@@ -790,6 +799,9 @@
           },
           "ageRange": {
             "type": "integer"
+          },
+          "blurb": {
+            "type": "string"
           }
         }
       }

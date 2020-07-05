@@ -542,9 +542,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -574,6 +571,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           }
