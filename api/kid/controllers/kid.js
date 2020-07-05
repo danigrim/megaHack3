@@ -2,6 +2,8 @@
 var distance = require('euclidean-distance')
 var natural = require('natural');
 
+
+
 module.exports = {
 
     /**
@@ -22,7 +24,7 @@ module.exports = {
     const rank = []
     books.forEach((book)=> {
       let d = distance(profile.profile, book.profile.profile)
-      recs[d] = recs[d] ? recs[d].push({title: book.title, id: book._id}) : recs[d] = [{title: book.title, id: book._id}]
+      recs[d] = recs[d] ? recs[d].push({title: book.title, id: book._id, cover: book.cover}) : recs[d] = [{title: book.title, id: book._id, cover: book.cover}]
     })
      Object.keys(recs).sort().map((dist, i) => {
         rank[i] = recs[dist]
@@ -91,7 +93,7 @@ module.exports = {
       if(!kid){
         ctx.send('Essa criança não existe')
       }
-      const bookIds = kid.class.books
+      const bookIds = kid.classgroup.books
       let wordList = []
       var tokenizer = new natural.AggressiveTokenizerPt();
       const bookPromises = bookIds.map(async (id)=> {
@@ -139,7 +141,7 @@ module.exports = {
         }else {
           if(good.price > kid.coins){
             ctx.send({Error: "Usuario não tem moedas o suficiente para a compra"})
-          }
+          }else{
             let new_coins = (Number(kid.coins) - Number(good.price)).toString()
             const updateCoins = await strapi.services.kid.update({ kidId }, {coins: new_coins});
             goodList.push(good.id)
@@ -147,6 +149,7 @@ module.exports = {
             if(!(updateCoins && updateGoods)){
               ctx.send({Error: "Error updating"})
             }
+          }
         }
        })
         await Promise.all(goodPromises)
@@ -176,5 +179,27 @@ module.exports = {
       } catch(error){
         ctx.send({Error: error.message})
       }
+    },
+    /** 
+     * Endpoint recebe texto do aluno, retorna pdf com a história
+     * @returns lista de amigos
+    **/
+   postBook: async ctx => {
+    try{
+    const { kidId } = ctx.params
+    const kid = await strapi.services.kid.findOne({ kidId });
+    if(!kid){
+      ctx.send({Error: "Essa criança não existe"})
     }
-    };
+    const b = ctx.request.body.book
+    if(!b){
+      ctx.send({Error: "Inválido"})
+    }
+    const result = await strapi.services.kid.bookPdf(b, kid)
+     return result
+    } catch(error){
+      ctx.send({Error: error.message})
+    }
+  }
+
+  };

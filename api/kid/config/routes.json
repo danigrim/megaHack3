@@ -87,6 +87,14 @@
       "config": {
         "policies": []
       }
+    }, 
+    {
+      "method": "POST",
+      "path": "/kids/book/:id",
+      "handler": "kid.postBook",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
