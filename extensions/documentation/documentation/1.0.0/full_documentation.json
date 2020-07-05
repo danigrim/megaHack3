@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/05/2020 1:06:07 AM"
+    "x-generation-date": "07/05/2020 11:04:15 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2739,7 +2739,75 @@
         }
       }
     },
-    "/kids/friend/{id}": {
+    "/kids/words/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Kid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/kids/shop/{id}": {
       "post": {
         "deprecated": false,
         "description": "Create a new record",
@@ -2808,74 +2876,6 @@
             }
           }
         }
-      }
-    },
-    "/kids/words/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Kid"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
       }
     },
     "/schools": {
@@ -6735,9 +6735,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
@@ -6755,13 +6755,13 @@
               "isOnline": {
                 "type": "boolean"
               },
-              "numProfilings": {
-                "type": "integer"
-              },
               "ageRange": {
                 "type": "integer"
               },
               "profilepicture": {
+                "type": "string"
+              },
+              "numProfilings": {
                 "type": "string"
               }
             }
@@ -6784,9 +6784,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
@@ -6804,13 +6804,13 @@
               "isOnline": {
                 "type": "boolean"
               },
-              "numProfilings": {
-                "type": "integer"
-              },
               "ageRange": {
                 "type": "integer"
               },
               "profilepicture": {
+                "type": "string"
+              },
+              "numProfilings": {
                 "type": "string"
               }
             }
@@ -7032,9 +7032,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
@@ -7052,13 +7052,13 @@
               "isOnline": {
                 "type": "boolean"
               },
-              "numProfilings": {
-                "type": "integer"
-              },
               "ageRange": {
                 "type": "integer"
               },
               "profilepicture": {
+                "type": "string"
+              },
+              "numProfilings": {
                 "type": "string"
               }
             }
@@ -7213,9 +7213,9 @@
             "type": "integer"
           },
           "coins": {
-            "type": "integer"
+            "type": "number"
           },
-          "goods": {
+          "goods_owned": {
             "required": [
               "id"
             ],
@@ -7378,13 +7378,13 @@
           "isOnline": {
             "type": "boolean"
           },
-          "numProfilings": {
-            "type": "integer"
-          },
           "ageRange": {
             "type": "integer"
           },
           "profilepicture": {
+            "type": "string"
+          },
+          "numProfilings": {
             "type": "string"
           }
         }
@@ -7401,9 +7401,9 @@
             "type": "integer"
           },
           "coins": {
-            "type": "integer"
+            "type": "number"
           },
-          "goods": {
+          "goods_owned": {
             "type": "string"
           },
           "books_read": {
@@ -7421,13 +7421,13 @@
           "isOnline": {
             "type": "boolean"
           },
-          "numProfilings": {
-            "type": "integer"
-          },
           "ageRange": {
             "type": "integer"
           },
           "profilepicture": {
+            "type": "string"
+          },
+          "numProfilings": {
             "type": "string"
           }
         }
@@ -7458,9 +7458,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
@@ -7478,13 +7478,13 @@
               "isOnline": {
                 "type": "boolean"
               },
-              "numProfilings": {
-                "type": "integer"
-              },
               "ageRange": {
                 "type": "integer"
               },
               "profilepicture": {
+                "type": "string"
+              },
+              "numProfilings": {
                 "type": "string"
               }
             }

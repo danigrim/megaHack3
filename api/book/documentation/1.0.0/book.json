@@ -680,9 +680,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
@@ -700,13 +700,13 @@
               "isOnline": {
                 "type": "boolean"
               },
-              "numProfilings": {
-                "type": "integer"
-              },
               "ageRange": {
                 "type": "integer"
               },
               "profilepicture": {
+                "type": "string"
+              },
+              "numProfilings": {
                 "type": "string"
               }
             }
@@ -729,9 +729,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
@@ -749,13 +749,13 @@
               "isOnline": {
                 "type": "boolean"
               },
-              "numProfilings": {
-                "type": "integer"
-              },
               "ageRange": {
                 "type": "integer"
               },
               "profilepicture": {
+                "type": "string"
+              },
+              "numProfilings": {
                 "type": "string"
               }
             }
