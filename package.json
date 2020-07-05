@@ -19,6 +19,7 @@
     "google-cloud-storage": "^2.0.2",
     "jquery": "^1.9.1",
     "knex": "^0.20.15",
+    "natural": "^2.1.5",
     "sqlite3": "latest",
     "strapi": "3.0.5",
     "strapi-admin": "3.0.5",

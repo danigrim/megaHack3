@@ -545,9 +545,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -577,6 +574,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           },
@@ -594,9 +594,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -626,6 +623,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           },
@@ -680,12 +680,18 @@
               "isOnline": {
                 "type": "boolean"
               },
+              "numProfilings": {
+                "type": "integer"
+              },
               "ageRange": {
                 "type": "integer"
+              },
+              "profilepicture": {
+                "type": "string"
               }
             }
           },
-          "words": {
+          "wordList": {
             "type": "object"
           }
         }
@@ -713,7 +719,7 @@
           "kid": {
             "type": "string"
           },
-          "words": {
+          "wordList": {
             "type": "object"
           }
         }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/04/2020 6:19:00 PM"
+    "x-generation-date": "07/04/2020 10:17:24 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2737,6 +2737,145 @@
             }
           }
         }
+      }
+    },
+    "/kids/friend/{id}": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Kid"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kids/words/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Kid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/schools": {
@@ -6444,9 +6583,6 @@
           "title": {
             "type": "string"
           },
-          "blurb": {
-            "type": "string"
-          },
           "cover": {
             "required": [
               "id",
@@ -6619,8 +6755,14 @@
               "isOnline": {
                 "type": "boolean"
               },
+              "numProfilings": {
+                "type": "integer"
+              },
               "ageRange": {
                 "type": "integer"
+              },
+              "profilepicture": {
+                "type": "string"
               }
             }
           },
@@ -6662,8 +6804,14 @@
               "isOnline": {
                 "type": "boolean"
               },
+              "numProfilings": {
+                "type": "integer"
+              },
               "ageRange": {
                 "type": "integer"
+              },
+              "profilepicture": {
+                "type": "string"
               }
             }
           },
@@ -6672,6 +6820,9 @@
           },
           "ageRange": {
             "type": "integer"
+          },
+          "blurb": {
+            "type": "string"
           }
         }
       },
@@ -6681,9 +6832,6 @@
             "type": "string"
           },
           "title": {
-            "type": "string"
-          },
-          "blurb": {
             "type": "string"
           },
           "author": {
@@ -6706,6 +6854,9 @@
           },
           "ageRange": {
             "type": "integer"
+          },
+          "blurb": {
+            "type": "string"
           }
         }
       },
@@ -6766,9 +6917,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -6798,6 +6946,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           },
@@ -6815,9 +6966,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -6847,6 +6995,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           },
@@ -6901,12 +7052,18 @@
               "isOnline": {
                 "type": "boolean"
               },
+              "numProfilings": {
+                "type": "integer"
+              },
               "ageRange": {
                 "type": "integer"
+              },
+              "profilepicture": {
+                "type": "string"
               }
             }
           },
-          "words": {
+          "wordList": {
             "type": "object"
           }
         }
@@ -6934,7 +7091,7 @@
           "kid": {
             "type": "string"
           },
-          "words": {
+          "wordList": {
             "type": "object"
           }
         }
@@ -7097,9 +7254,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -7129,6 +7283,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           },
@@ -7146,9 +7303,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -7178,6 +7332,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           },
@@ -7210,7 +7367,7 @@
               "kid": {
                 "type": "string"
               },
-              "words": {
+              "wordList": {
                 "type": "object"
               }
             }
@@ -7221,8 +7378,14 @@
           "isOnline": {
             "type": "boolean"
           },
+          "numProfilings": {
+            "type": "integer"
+          },
           "ageRange": {
             "type": "integer"
+          },
+          "profilepicture": {
+            "type": "string"
           }
         }
       },
@@ -7258,8 +7421,14 @@
           "isOnline": {
             "type": "boolean"
           },
+          "numProfilings": {
+            "type": "integer"
+          },
           "ageRange": {
             "type": "integer"
+          },
+          "profilepicture": {
+            "type": "string"
           }
         }
       },
@@ -7309,8 +7478,14 @@
               "isOnline": {
                 "type": "boolean"
               },
+              "numProfilings": {
+                "type": "integer"
+              },
               "ageRange": {
                 "type": "integer"
+              },
+              "profilepicture": {
+                "type": "string"
               }
             }
           }
@@ -7351,9 +7526,6 @@
               "title": {
                 "type": "string"
               },
-              "blurb": {
-                "type": "string"
-              },
               "cover": {
                 "type": "string"
               },
@@ -7383,6 +7555,9 @@
               },
               "ageRange": {
                 "type": "integer"
+              },
+              "blurb": {
+                "type": "string"
               }
             }
           }

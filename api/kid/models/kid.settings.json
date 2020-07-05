@@ -40,8 +40,14 @@
     "isOnline": {
       "type": "boolean"
     },
+    "numProfilings": {
+      "type": "biginteger"
+    },
     "ageRange": {
-      "type": "integer"
+      "type": "biginteger"
+    },
+    "profilepicture": {
+      "type": "string"
     }
   }
 }
