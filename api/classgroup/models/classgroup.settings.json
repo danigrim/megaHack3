@@ -27,12 +27,11 @@
     "school": {
       "model": "school"
     },
-    "kid": {
-      "via": "class",
-      "model": "kid"
-    },
     "wordList": {
       "type": "json"
+    },
+    "kids": {
+      "collection": "kid"
     }
   }
 }

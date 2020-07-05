@@ -15,9 +15,6 @@
     "description": {
       "type": "richtext"
     },
-    "price": {
-      "type": "decimal"
-    },
     "cover": {
       "model": "file",
       "via": "related",
@@ -31,6 +28,9 @@
     },
     "forBook": {
       "type": "boolean"
+    },
+    "price": {
+      "type": "string"
     }
   }
 }

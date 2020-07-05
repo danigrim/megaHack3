@@ -79,6 +79,14 @@
       "config": {
         "policies": []
       }
+    }, 
+    {
+      "method": "GET",
+      "path": "/kids/sameclass/:id",
+      "handler": "kid.sameClass",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

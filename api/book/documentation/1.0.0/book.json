@@ -679,19 +679,10 @@
               "parentPhone": {
                 "type": "integer"
               },
-              "coins": {
-                "type": "number"
-              },
-              "goods_owned": {
-                "type": "string"
-              },
               "books_read": {
                 "type": "string"
               },
               "books_writtens": {
-                "type": "string"
-              },
-              "class": {
                 "type": "string"
               },
               "profile": {
@@ -707,6 +698,15 @@
                 "type": "string"
               },
               "numProfilings": {
+                "type": "string"
+              },
+              "goods_owned": {
+                "type": "object"
+              },
+              "coins": {
+                "type": "string"
+              },
+              "classgroup": {
                 "type": "string"
               }
             }
@@ -728,19 +728,10 @@
               "parentPhone": {
                 "type": "integer"
               },
-              "coins": {
-                "type": "number"
-              },
-              "goods_owned": {
-                "type": "string"
-              },
               "books_read": {
                 "type": "string"
               },
               "books_writtens": {
-                "type": "string"
-              },
-              "class": {
                 "type": "string"
               },
               "profile": {
@@ -756,6 +747,15 @@
                 "type": "string"
               },
               "numProfilings": {
+                "type": "string"
+              },
+              "goods_owned": {
+                "type": "object"
+              },
+              "coins": {
+                "type": "string"
+              },
+              "classgroup": {
                 "type": "string"
               }
             }

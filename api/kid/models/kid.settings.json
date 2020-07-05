@@ -18,21 +18,11 @@
     "parentPhone": {
       "type": "biginteger"
     },
-    "coins": {
-      "type": "decimal"
-    },
-    "goods_owned": {
-      "collection": "goods"
-    },
     "books_read": {
       "collection": "book"
     },
     "books_writtens": {
       "collection": "book"
-    },
-    "class": {
-      "model": "classgroup",
-      "via": "kid"
     },
     "profile": {
       "type": "json"
@@ -48,6 +38,15 @@
     },
     "numProfilings": {
       "type": "string"
+    },
+    "goods_owned": {
+      "type": "json"
+    },
+    "coins": {
+      "type": "string"
+    },
+    "classgroup": {
+      "model": "classgroup"
     }
   }
 }

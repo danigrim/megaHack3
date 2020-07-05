@@ -27,7 +27,7 @@ module.exports = {
      Object.keys(recs).sort().map((dist, i) => {
         rank[i] = recs[dist]
     })
-    ctx.send({"ranking": rank})
+    ctx.send({"Ranking de livros": rank})
     }else {
         ctx.send({Error:"Faltando informação sobre a criança"})
     }
@@ -74,7 +74,7 @@ module.exports = {
         }
         ctx.send({"perfil Leitor calculado com sucesso!": kidProfile})
     }catch(error){
-        ctx.send({error: error.message})
+        ctx.send({"Error": error.message})
     }
     },
 
@@ -97,7 +97,7 @@ module.exports = {
       const bookPromises = bookIds.map(async (id)=> {
           const book = await strapi.query('book').findOne({_id: id})
           if (!book){
-              ctx.send({Error: 'Livro não existe'})
+              ctx.send({"Error": 'Livro não existe'})
           }
             wordList = wordList.concat(tokenizer.tokenize(book.blurb))
       })
@@ -117,7 +117,7 @@ module.exports = {
      })
       ctx.send({palavras: reducedList})
     } catch(error) {
-            ctx.send({"error" :error.message})
+            ctx.send({"Error" :error.message})
     }
     },
     /**
@@ -126,36 +126,55 @@ module.exports = {
     buyGood: async ctx => {
        try{
        const { kidId } = ctx.params
-       const  id  = ctx.request.body.good
-       const good = await strapi.query('goods').findOne({_id: id})
-       console.log(good)
+       const  ids  = ctx.request.body.goods
+       const kid = await strapi.services.kid.findOne({kidId})
+       if(!kid){
+        ctx.send({Error: "Esse usuario não existe"})
+       }
+       let goodList = kid.goods_owned? kid.goods_owned : []
+       const goodPromises = ids.map(async (id)=> {
+        const good = await strapi.query('goods').findOne({id})
         if(!good){
-            ctx.send('Esse bem não existe')
+            ctx.send({Error: "Esse objeto não existe"})
+        }else {
+          if(good.price > kid.coins){
+            ctx.send({Error: "Usuario não tem moedas o suficiente para a compra"})
+          }
+            let new_coins = (Number(kid.coins) - Number(good.price)).toString()
+            const updateCoins = await strapi.services.kid.update({ kidId }, {coins: new_coins});
+            goodList.push(good.id)
+            const updateGoods = await strapi.services.kid.update({ kidId }, {goods_owned: goodList});
+            if(!(updateCoins && updateGoods)){
+              ctx.send({Error: "Error updating"})
+            }
         }
-        const kid = await strapi.services.kid.findOne({kidId})
-        console.log(kid)
-        if(!kid){
-            ctx.send('Essa criança não existe')
+       })
+        await Promise.all(goodPromises)
+        ctx.send({"kid": kid})
+        } catch(error) {
+            ctx.send({Error: error.message})
         }
-        if(good.cost > kid.coins){
-          console.log('stuck buying')
-          ctx.send('Usuário não tem moedas o suficiente para a compra')
-        }
-        let new_coins = kid.coins - good.price
-        console.log(new_coins)
-        const previously_owned = kid.goods_owned ? kid.goods_owned : []
-        const kid_goods = [...previously_owned, good._id]
-        console.log(kid_goods)
-        //kid.goods.push(goos)
-       const kidupdated = await strapi.services.kid.update({ kidId }, {goods_owned: kid_goods});
-       if(!kidupdate){
-        console.log('error in updating kid')
+    },
+    /** 
+     * Endpoint recebe id de aluno, gera uma lista de alunos que estão na mesma sala
+     * @returns lista de amigos
+    **/
+    sameClass: async ctx => {
+      try{
+      const { kidId } = ctx.params
+      const kid = await strapi.services.kid.findOne({ kidId });
+      if(!kid){
+        ctx.send({Error: "Essa criança não existe"})
       }
-       //Promise.all(coinUpdate, goodUpdate)
-       // kid.save()
-       ctx.send({"kid": kidupdated})
-    } catch(error) {
-        ctx.send(error.message)
+      console.log(kid.classgroup)
+      let kids = await strapi.query('kid').find({classgroup: kid.classgroup});
+      if(!kids){
+        ctx.send({Message: "Não tem ninguém nessa sala"})
+      }
+      const reducedKidList = kids.filter((k) => {return (k.id !== kid.id)})
+      ctx.send({"kids": reducedKidList});
+      } catch(error){
+        ctx.send({Error: error.message})
+      }
     }
-}
-};
+    };

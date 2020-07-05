@@ -528,9 +528,6 @@
           "description": {
             "type": "string"
           },
-          "price": {
-            "type": "number"
-          },
           "cover": {
             "required": [
               "id",
@@ -594,6 +591,9 @@
           },
           "forBook": {
             "type": "boolean"
+          },
+          "price": {
+            "type": "string"
           }
         }
       },
@@ -605,11 +605,11 @@
           "description": {
             "type": "string"
           },
-          "price": {
-            "type": "number"
-          },
           "forBook": {
             "type": "boolean"
+          },
+          "price": {
+            "type": "string"
           }
         }
       }

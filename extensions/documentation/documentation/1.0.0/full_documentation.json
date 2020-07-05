@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/05/2020 11:04:15 AM"
+    "x-generation-date": "07/05/2020 1:57:56 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2876,6 +2876,74 @@
             }
           }
         }
+      }
+    },
+    "/kids/sameclass/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Kid"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/schools": {
@@ -6734,19 +6802,10 @@
               "parentPhone": {
                 "type": "integer"
               },
-              "coins": {
-                "type": "number"
-              },
-              "goods_owned": {
-                "type": "string"
-              },
               "books_read": {
                 "type": "string"
               },
               "books_writtens": {
-                "type": "string"
-              },
-              "class": {
                 "type": "string"
               },
               "profile": {
@@ -6762,6 +6821,15 @@
                 "type": "string"
               },
               "numProfilings": {
+                "type": "string"
+              },
+              "goods_owned": {
+                "type": "object"
+              },
+              "coins": {
+                "type": "string"
+              },
+              "classgroup": {
                 "type": "string"
               }
             }
@@ -6783,19 +6851,10 @@
               "parentPhone": {
                 "type": "integer"
               },
-              "coins": {
-                "type": "number"
-              },
-              "goods_owned": {
-                "type": "string"
-              },
               "books_read": {
                 "type": "string"
               },
               "books_writtens": {
-                "type": "string"
-              },
-              "class": {
                 "type": "string"
               },
               "profile": {
@@ -6811,6 +6870,15 @@
                 "type": "string"
               },
               "numProfilings": {
+                "type": "string"
+              },
+              "goods_owned": {
+                "type": "object"
+              },
+              "coins": {
+                "type": "string"
+              },
+              "classgroup": {
                 "type": "string"
               }
             }
@@ -7014,7 +7082,10 @@
               }
             }
           },
-          "kid": {
+          "wordList": {
+            "type": "object"
+          },
+          "kids": {
             "required": [
               "id"
             ],
@@ -7031,19 +7102,10 @@
               "parentPhone": {
                 "type": "integer"
               },
-              "coins": {
-                "type": "number"
-              },
-              "goods_owned": {
-                "type": "string"
-              },
               "books_read": {
                 "type": "string"
               },
               "books_writtens": {
-                "type": "string"
-              },
-              "class": {
                 "type": "string"
               },
               "profile": {
@@ -7060,11 +7122,17 @@
               },
               "numProfilings": {
                 "type": "string"
+              },
+              "goods_owned": {
+                "type": "object"
+              },
+              "coins": {
+                "type": "string"
+              },
+              "classgroup": {
+                "type": "string"
               }
             }
-          },
-          "wordList": {
-            "type": "object"
           }
         }
       },
@@ -7088,11 +7156,11 @@
           "school": {
             "type": "string"
           },
-          "kid": {
-            "type": "string"
-          },
           "wordList": {
             "type": "object"
+          },
+          "kids": {
+            "type": "string"
           }
         }
       },
@@ -7109,9 +7177,6 @@
           },
           "description": {
             "type": "string"
-          },
-          "price": {
-            "type": "number"
           },
           "cover": {
             "required": [
@@ -7176,6 +7241,9 @@
           },
           "forBook": {
             "type": "boolean"
+          },
+          "price": {
+            "type": "string"
           }
         }
       },
@@ -7187,11 +7255,11 @@
           "description": {
             "type": "string"
           },
-          "price": {
-            "type": "number"
-          },
           "forBook": {
             "type": "boolean"
+          },
+          "price": {
+            "type": "string"
           }
         }
       },
@@ -7211,34 +7279,6 @@
           },
           "parentPhone": {
             "type": "integer"
-          },
-          "coins": {
-            "type": "number"
-          },
-          "goods_owned": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "price": {
-                "type": "number"
-              },
-              "cover": {
-                "type": "string"
-              },
-              "forBook": {
-                "type": "boolean"
-              }
-            }
           },
           "books_read": {
             "required": [
@@ -7338,7 +7378,28 @@
               }
             }
           },
-          "class": {
+          "profile": {
+            "type": "object"
+          },
+          "isOnline": {
+            "type": "boolean"
+          },
+          "ageRange": {
+            "type": "integer"
+          },
+          "profilepicture": {
+            "type": "string"
+          },
+          "numProfilings": {
+            "type": "string"
+          },
+          "goods_owned": {
+            "type": "object"
+          },
+          "coins": {
+            "type": "string"
+          },
+          "classgroup": {
             "required": [
               "id"
             ],
@@ -7364,28 +7425,13 @@
               "school": {
                 "type": "string"
               },
-              "kid": {
-                "type": "string"
-              },
               "wordList": {
                 "type": "object"
+              },
+              "kids": {
+                "type": "string"
               }
             }
-          },
-          "profile": {
-            "type": "object"
-          },
-          "isOnline": {
-            "type": "boolean"
-          },
-          "ageRange": {
-            "type": "integer"
-          },
-          "profilepicture": {
-            "type": "string"
-          },
-          "numProfilings": {
-            "type": "string"
           }
         }
       },
@@ -7400,19 +7446,10 @@
           "parentPhone": {
             "type": "integer"
           },
-          "coins": {
-            "type": "number"
-          },
-          "goods_owned": {
-            "type": "string"
-          },
           "books_read": {
             "type": "string"
           },
           "books_writtens": {
-            "type": "string"
-          },
-          "class": {
             "type": "string"
           },
           "profile": {
@@ -7428,6 +7465,15 @@
             "type": "string"
           },
           "numProfilings": {
+            "type": "string"
+          },
+          "goods_owned": {
+            "type": "object"
+          },
+          "coins": {
+            "type": "string"
+          },
+          "classgroup": {
             "type": "string"
           }
         }
@@ -7457,19 +7503,10 @@
               "parentPhone": {
                 "type": "integer"
               },
-              "coins": {
-                "type": "number"
-              },
-              "goods_owned": {
-                "type": "string"
-              },
               "books_read": {
                 "type": "string"
               },
               "books_writtens": {
-                "type": "string"
-              },
-              "class": {
                 "type": "string"
               },
               "profile": {
@@ -7485,6 +7522,15 @@
                 "type": "string"
               },
               "numProfilings": {
+                "type": "string"
+              },
+              "goods_owned": {
+                "type": "object"
+              },
+              "coins": {
+                "type": "string"
+              },
+              "classgroup": {
                 "type": "string"
               }
             }
