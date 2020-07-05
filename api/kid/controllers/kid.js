@@ -6,7 +6,7 @@ var natural = require('natural');
 module.exports = {
 
     /**
-     * Função retorna uma lista ordendada de recomendações de livros
+     * Endpoint retorna uma lista ordendada de recomendações de livros
      * Livros filtrados por idade apropriada e rankeados baseados na distancia euclediana entre
      * o vetor de cinco dimensões que define o perfil leitor do usuario e o perfil do livro.  
      * @returns lista ordenada de livros com título e id. 
@@ -38,7 +38,7 @@ module.exports = {
 },
 
 /**
- * Função gera o vetor de cinco dimensões que define o perfil leitor do usuário baseado em uma média
+ * Enpoint gera o vetor de cinco dimensões que define o perfil leitor do usuário baseado em uma média
  * do perfil dos cards selecionados pelo usuário.
  * @returns use reader profile
  */
@@ -61,6 +61,7 @@ module.exports = {
             })
             }
         })
+        //update nymber of profilings!!
         const kidupdate = await strapi.services.kid.update({ kidId }, {profile: {"profile": kidProfile}});
         if(!kidupdate){
             console.log('error in updating kid')
@@ -69,7 +70,7 @@ module.exports = {
     },
 
     /**
-     * Função recebe id de aluno, gera lista de palavras baseadas no livro indicado pelo professor
+     * Endpoint recebe id de aluno, gera lista de palavras baseadas no livro indicado pelo professor
      * reduzindo a lista para remover palavras parecidas/identicas.
      * Remove todas as palavras com similaridade acima do nível 0.9 (como definido pelo padrão de JaronWinklerDistance)
      * @returns lista de palavras
@@ -107,6 +108,43 @@ module.exports = {
     } catch(error) {
             ctx.send({"error" :error})
     }
+    },
+    /**
+     * Endpoint atualizando estado do usuario após compra.
+     */
+    buyGood: async ctx => {
+       try{
+       const { kidId } = ctx.params
+       const  id  = ctx.request.body.good
+       const good = await strapi.query('goods').findOne({_id: id})
+       console.log(good)
+        if(!good){
+            ctx.send('Esse bem não existe')
+        }
+        const kid = await strapi.services.kid.findOne({kidId})
+        console.log(kid)
+        if(!kid){
+            ctx.send('Essa criança não existe')
+        }
+        if(good.cost > kid.coins){
+          console.log('stuck buying')
+          ctx.send('Usuário não tem moedas o suficiente para a compra')
+        }
+        let new_coins = kid.coins - good.price
+        console.log(new_coins)
+        const previously_owned = kid.goods_owned ? kid.goods_owned : []
+        const kid_goods = [...previously_owned, good._id]
+        console.log(kid_goods)
+        //kid.goods.push(goos)
+       const kidupdated = await strapi.services.kid.update({ kidId }, {goods_owned: kid_goods});
+       if(!kidupdate){
+        console.log('error in updating kid')
+      }
+       //Promise.all(coinUpdate, goodUpdate)
+       // kid.save()
+       ctx.send({"kid": kidupdated})
+    } catch(error) {
+        ctx.send(error.message)
     }
-
+}
 };

@@ -19,9 +19,9 @@
       "type": "biginteger"
     },
     "coins": {
-      "type": "biginteger"
+      "type": "decimal"
     },
-    "goods": {
+    "goods_owned": {
       "collection": "goods"
     },
     "books_read": {

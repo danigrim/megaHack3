@@ -79,6 +79,14 @@
       "config": {
         "policies": []
       }
+    }, 
+    {
+      "method": "POST",
+      "path": "/kids/shop/:id",
+      "handler": "kid.buyGood",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

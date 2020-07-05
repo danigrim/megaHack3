@@ -680,9 +680,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
@@ -729,9 +729,9 @@
                 "type": "integer"
               },
               "coins": {
-                "type": "integer"
+                "type": "number"
               },
-              "goods": {
+              "goods_owned": {
                 "type": "string"
               },
               "books_read": {
