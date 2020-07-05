@@ -7,17 +7,23 @@ module.exports = {
     /**
      * Endpoint retorna uma lista ordendada de recomendações de livros
      * Livros filtrados por idade apropriada e rankeados baseados na distancia euclediana entre
-     * o vetor de cinco dimensões que define o perfil leitor do usuario e o perfil do livro.  
-     * @returns lista ordenada de livros com título e id. 
+     * o vetor de cinco dimensões que define o perfil leitor do usuario e o perfil do livro.
+     * @returns lista ordenada de livros com título e id.
      */
   recommendBooks: async ctx => {
     const { kidId } = ctx.params
     try{
     const kid = await strapi.services.kid.findOne({ kidId });
+    if (!kid) {
+      ctx.send({Error: "Essa criança não existe"});
+    }
     const profile = kid.profile
     const kidAge = kid.ageRange
     if(kidAge && profile && profile.profile){
     const books = await strapi.query('book').find({ageRange: kidAge})
+    if (!books) {
+      ctx.send({Error: "Livros não encontrados"});
+    }
     let recs = {}
     const rank = []
     books.forEach((book)=> {
@@ -155,7 +161,7 @@ module.exports = {
             ctx.send({Error: error.message})
         }
     },
-    /** 
+    /**
      * Endpoint recebe id de aluno, gera uma lista de alunos que estão na mesma sala
      * @returns lista de amigos
     **/
