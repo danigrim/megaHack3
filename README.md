@@ -11,13 +11,176 @@ veja [Árvore Educação](https://arvoreeducacao.com.br/)
 ----
 ## Nossa solução: SeedBook (Repositório backend)
 Tecnologia: NodeJs, MongoDB, Strapi, AWS 
+## Nossa solução: SeedBook (Repositório backend)
+Tecnologia: NodeJs, MongoDB, Strapi, AWS 
 
-Montamos uma **rede social** para alunos que incentiva leitura. No primeiro passo, fazemos um mapeamento do perfil leitor do aluno por meio de cards. Cada um desses cards tem um "perfil" na nossa base de dados, que é um vetor de cinco dimensões enumeradas de 0-5 mapeando características como a personalidade dos personagens, atmosféra e clima. Quando o aluno escolhe os cards que ele mais gosta, calculamos uma média desses cards para representar o perfil leitor do aluno. No futuro, se o aluno voltar para esse passo vamos re-calcular uma média dos cards accumulados dele. Esse perfil leitor é usado para recomendarmos livros para o aluno. Quando o aluno acessa a pagina de livros, pegamos todos os livros na nossa base que são apropriados para a facha etária dele, e calculamos as "distâncias euclideanas" entre o perfil do aluno e o perfil do livro, gerando uma lista de recomendações. Assim, podemos recomendar livros parecidos aos jogos, filmes, e séries preferidos do aluno. 
+Montamos uma **rede social** para alunos que incentiva leitura.
+
+**ROTAS**
+
+**POST /kids/cards/:id** 
+Request Body : 
+  Cardlist contém as id's das cards selecionadas pelo usuário
+
+     {
+         "cardlist": ["123442808", 2384029830", "387402909"]
+     }
+
+Returns:
+
+{
+  "Perfil do leitor calculado com sucesso!": [3.0002, 2.0009, 1.778893, 3.7, 0.008889]
+}
+
+No primeiro passo, fazemos um mapeamento do perfil leitor do aluno por meio de cards. Cada um desses cards tem um "perfil" na nossa base de dados, que é um vetor de cinco dimensões enumeradas de 0-5 mapeando características como a personalidade dos personagens, atmosféra e clima. Quando o aluno escolhe os cards que ele mais gosta, calculamos uma média desses cards para representar o perfil leitor do aluno. 
+
+Como definimos o perfil leitor: [a, b, c, d, e] 
+a: Cenário (0-N/A, 1-urbano, 2-Natureza, 3-Cartoon, 4-Fantasioso) - Por exemplo, Nárnia se encaixa em um cenário 4, e Pokemon em um cenário 3
+
+b: Gênero (0-N/A, 1-tendência masculina 2-tendência feminina) - **Esse valor não está relacionado ao genero da criança, somente o do personagem** Por exemplo, turma da mônica seria gênero 0, Cinderella seria gênero 2
+
+c: Esfera (0-N/A, 1-Realidade com componentes fantasiosos, 2-Fantasia com componentes reais 3-Um mundo totalmente imaginário) - Por exemplo, Bob Esponja se encaixa em 3, e Harry Potter se encaixa em 2)
+
+d: Clima (0-N/A, 1-Comédia, 2-Feliz, 3-Aventura/Curioso 4-Romântico) - Por exemplo, Garfield se encaixa em (1) e Peter Pan em (3)
+
+e: Personagens (0-N/a, 1-Humano, 2-Princesa/Principe, 3-Animal, 4-Avatar/Game, 5-Criatura ficticia)
+
+**Nota** Na próxima vez que o endpoint for chamado para o mesmo aluno, re-calculamos a média dos cards accumulados dele. Esse perfil leitor é usado para recomendarmos livros para o aluno. 
+
+**GET /kids/recommend/:id** 
+Request Body : vazio
+
+Returns:
+
+{
+  "Ranking de livros" : [ 
+                              [{
+                                  "title" : "Onde Os Monstros Vivem",
+                                   "id": "5f00eda2a9094208ba0eeb28",
+                                   "cover" : {
+                                   ....
+                                   "url": "https://megahack3.s3.us-west-1.amazonaws.com/monstros_892efb3583.jpeg",
+                                   "formats": {
+                                      "thumbnail": {
+                                         "hash": "thumbnail_monstros_892efb3583",
+                                         "ext": ".jpeg",
+                                        "url": "https://megahack3.s3.us-west-1.amazonaws.com/thumbnail_monstros_892efb3583.jpeg"
+                                      }
+                                  }
+                               }],
+                               [{
+                                   "title" : "Peter Pan",
+                                   "id": "5f00eda2a9094208ba0eeb28",
+                                   "cover" : {
+                                   ....
+                                   "url": "https://megahack3.s3.us-west-1.amazonaws.com/monstros_892efb3583.jpeg",
+                                   "formats": {
+                                      "thumbnail": {
+                                         "hash": "thumbnail_monstros_892efb3583",
+                                         "ext": ".jpeg",
+                                        "url": "https://megahack3.s3.us-west-1.amazonaws.com/thumbnail_monstros_892efb3583.jpeg"
+                                      }
+                                  }
+                                }]
+}
+
+Esse endpoint recebe o id do usuário e calcula a distância euclideana (foto da equação) entre o perfil do usuário e o perfil de cada livro disponível na base de dados que está classificado como apropriado para a idade dele. Endpoint retorna uma lista ordenada do livro mais próximo, até o mais distante do perfil do usuário.
+
+**GET /kids/words/:id** 
+Request Body : vazio
+
+Returns:
+
+{
+    "palavras": [
+        "Toda",
+        "conhece",
+        "caminho",
+        "mágico",
+        "seu",
+        "ciumento",
+        "amigo",
+        "fadas",
+        "Tinker",
+        "Bell",
+        "Peter",
+        "Pan",
+        "incomoda",
+        "obviamente",
+        "crianças",
+        "Darling",
+        "Wendy",
+        "John",
+        "Michael",
+        "sair",
+        "voar",
+        "Neverland",
+        ....
+        ]
+}
+
+Esse endpoint recebe o id do aluno e busca os livros recomendados pelo professor do aluno. O endpoint busca trechos dos livros na nossa base de dados e usa a biblioteca "natural" do NodeJS para aplicar funções de procesamento de linguagem natural (NLP), parseando os textos em palavras e usando a equação chamada JaroWinklerDistance para remover palavras muito parecidas/iguais removendo redundâncias. Nós removemos todas as palavras que tem uma distância acima de 0.9, e podemos variar esse valor para aumentar/diminuir a diferença entre as palavras. 
+
+**GET /kids/sameclass/:id** 
+Request Body : vazio
+
+Returns:
+
+{
+    "kids": [
+        {
+            "books_read": [],
+            "books_writtens": [],
+            "_id": "5f014770a9094208ba0eeb39",
+            "goods": [],
+            "profile": null,
+            "name": "Clara",
+            "birthDate": "2012-02-01",
+            "coins": "4",
+            "createdAt": "2020-07-05T03:22:24.876Z",
+            "updatedAt": "2020-07-05T23:51:31.375Z",
+            "__v": 0,
+            "class": null,
+            "isOnline": true,
+            "classgroup": {
+                "books": [
+                    "5f00e9aca9094208ba0eeb1e",
+                    "5f00ee4fa9094208ba0eeb2b"
+                ],
+                "kid_written_books": [],
+                "kids": [],
+                "_id": "5f00fccdd4a65ab9b5588e06",
+                "words": null,
+                "ageRange": "2",
+                "teacherName": "Laura",
+                "createdAt": "2020-07-04T22:03:57.137Z",
+                "updatedAt": "2020-07-06T00:24:46.681Z",
+                "__v": 0,
+                "kid": "5f00a26a3ed4d29bf3f6e6a1",
+                "id": "5f00fccdd4a65ab9b5588e06"
+            },
+            "profilepicture": "girl-8",
+            "goods_owned": [],
+            "id": "5f014770a9094208ba0eeb39"
+        },
+        ]
+    }
+
+Esse endpoint recebe o id do aluno e retorna todos os usários registrados no aplicativo que estão na mesma sala de aula do aluno. 
+
+**GET /kids/shop/:id** 
+Request Body :
+
+{
+    “goods” : [“2930921829038”, “2398104047093”]
+}
+
+Esse endpoint recebe o id do aluno e uma lista dos ids dos objetos que ele quer comprar na loja. A API verifica que o aluno tem moedas o suficiente, e atualiza suas moedas e bens para refletir a compra. 
+
 
 <img src="./imagens/imagem1.png" width="192">
 
-Também estimulamos a criação, indicação, compra e venda de livros **feito pelos próprios alunos** e o compartilhamento de trechos dos livros em áudio e de imagens dos desenhos criados no aplicativo. Quanto mais a criança lê e participa das atividades, mais ganha moedas que podem ser trocadas por personagens, cenários e e-books feitos pelos seus colegas. Na sessão de curadoria, a criança cria histórias usando palavras relacionadas aos livros selecionados pelo professor. Usamos funções de Processamento de Linguagem Natural para extrair palavras de textos e remover palavras similares/identicas. Assim, o aluno interage mais com os livros recomendados pelo professor, ganhando familiaridade com o vocabulário, personagens e cenários dele. 
-
+Também estimulamos a criação, indicação, compra e venda de livros **feito pelos próprios alunos** e o compartilhamento de trechos dos livros em áudio e de imagens dos desenhos criados no aplicativo. 
 <img src="./imagens/imagem2.png" width="192">
 
 Também disponibilizamos **Certificados**, para demonstrar o desenvolvimento dos alunos no aplicativo.
