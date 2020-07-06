@@ -27,9 +27,10 @@ Request Body :
      }
 
 Returns:
-{
-         "Perfil do leitor calculado com sucesso!": [3.0002, 2.0009, 1.778893, 3.7, 0.008889]
-}
+
+     {
+         "Perfil do leitor calculado com sucesso": [3.0002, 2.0009, 1.778893, 3.7, 0.008889]
+     }
 
 No primeiro passo, fazemos um mapeamento do perfil leitor do aluno por meio de cards. Cada um desses cards tem um "perfil" na nossa base de dados, que é um vetor de cinco dimensões enumeradas de 0-5 mapeando características como a personalidade dos personagens, atmosféra e clima. Quando o aluno escolhe os cards que ele mais gosta, calculamos uma média desses cards para representar o perfil leitor do aluno. 
 
@@ -54,9 +55,9 @@ Request Body : vazio
 
 Returns:
 
-{
-  "Ranking de livros" : [ 
-                              [{
+     {
+         "Ranking de livros":
+                               [{
                                   "title" : "Onde Os Monstros Vivem",
                                    "id": "5f00eda2a9094208ba0eeb28",
                                    "cover" : {
@@ -84,7 +85,8 @@ Returns:
                                       }
                                   }
                                 }]
-}
+      }
+
 
 Esse endpoint recebe o id do usuário e calcula a distância euclideana (foto da equação) entre o perfil do usuário e o perfil de cada livro disponível na base de dados que está classificado como apropriado para a idade dele. Endpoint retorna uma lista ordenada do livro mais próximo, até o mais distante do perfil do usuário.
 
