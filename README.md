@@ -14,15 +14,15 @@ Tecnologia: NodeJs, MongoDB, Strapi, AWS
 
 Montamos uma **rede social** para alunos que incentiva leitura. No primeiro passo, fazemos um mapeamento do perfil leitor do aluno por meio de cards. Cada um desses cards tem um "perfil" na nossa base de dados, que é um vetor de cinco dimensões enumeradas de 0-5 mapeando características como a personalidade dos personagens, atmosféra e clima. Quando o aluno escolhe os cards que ele mais gosta, calculamos uma média desses cards para representar o perfil leitor do aluno. No futuro, se o aluno voltar para esse passo vamos re-calcular uma média dos cards accumulados dele. Esse perfil leitor é usado para recomendarmos livros para o aluno. Quando o aluno acessa a pagina de livros, pegamos todos os livros na nossa base que são apropriados para a facha etária dele, e calculamos as "distâncias euclideanas" entre o perfil do aluno e o perfil do livro, gerando uma lista de recomendações. Assim, podemos recomendar livros parecidos aos jogos, filmes, e séries preferidos do aluno. 
 
-<img src="./imagens/imagem1.png" width="768">
+<img src="./imagens/imagem1.png" width="192">
 
 Também estimulamos a criação, indicação, compra e venda de livros **feito pelos próprios alunos** e o compartilhamento de trechos dos livros em áudio e de imagens dos desenhos criados no aplicativo. Quanto mais a criança lê e participa das atividades, mais ganha moedas que podem ser trocadas por personagens, cenários e e-books feitos pelos seus colegas. Na sessão de curadoria, a criança cria histórias usando palavras relacionadas aos livros selecionados pelo professor. Usamos funções de Processamento de Linguagem Natural para extrair palavras de textos e remover palavras similares/identicas. Assim, o aluno interage mais com os livros recomendados pelo professor, ganhando familiaridade com o vocabulário, personagens e cenários dele. 
 
-<img src="./imagens/imagem2.png" width="768">
+<img src="./imagens/imagem2.png" width="192">
 
 Também disponibilizamos **Certificados**, para demonstrar o desenvolvimento dos alunos no aplicativo.
 
-<img src="./imagens/imagem3.png" width="768">
+<img src="./imagens/imagem3.png" width="192">
 
 ## Flow
 1. Quando a criança decide “começar” sua jornada, ela é redirecionada a uma tela que contém vários “Cards”. Na nossa base de dados, cada um desses cards foram avaliados e tem um perfil. A criança seleciona os cards que ela mais gosta e chama nossa API que faz uma média do perfil desses cards para calcular o “perfil leitor” da criança.
