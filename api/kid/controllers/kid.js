@@ -97,7 +97,7 @@ module.exports = {
       if(!kid){
         ctx.send('Essa criança não existe')
       }
-      const bookIds = kid.class.books
+      const bookIds = kid.classgroup.books
       let wordList = []
       var tokenizer = new natural.AggressiveTokenizerPt();
       const bookPromises = bookIds.map(async (id)=> {
