@@ -99,7 +99,8 @@ Esse endpoint recebe o id do usuário e calcula a distância euclideana (foto da
 `Returns`:
 ```
 {
-    "palavras": [
+   
+     "Palavras": [            
         "Toda",
         "conhece",
         "caminho",
@@ -137,7 +138,7 @@ Esse endpoint recebe o id do aluno e busca os livros recomendados pelo professor
     "kids": [
         {
             "books_read": [],
-            "books_writtens": [],
+             "books_writtens": [],
             "_id": "5f014770a9094208ba0eeb39",
             "goods": [],
             "profile": null,
