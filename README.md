@@ -96,9 +96,9 @@ Request Body : vazio
 
 
 Returns:
-
 {
-    "palavras": [
+   
+     "Palavras": [            
         "Toda",
         "conhece",
         "caminho",
@@ -132,11 +132,11 @@ Request Body : vazio
 
 Returns:
 
-{
-    "kids": [
-        {
+     {
+         "kids":
+                 [{
             "books_read": [],
-            "books_writtens": [],
+             "books_writtens": [],
             "_id": "5f014770a9094208ba0eeb39",
             "goods": [],
             "profile": null,
@@ -177,9 +177,9 @@ Esse endpoint recebe o id do aluno e retorna todos os usários registrados no ap
 **GET /kids/shop/:id** 
 Request Body :
 
-{
-    “goods” : [“2930921829038”, “2398104047093”]
-}
+     {
+         "goods": ["8293283883838", "327974389781", "813704730872"]
+     }
 
 Esse endpoint recebe o id do aluno e uma lista dos ids dos objetos que ele quer comprar na loja. A API verifica que o aluno tem moedas o suficiente, e atualiza suas moedas e bens para refletir a compra. 
 
