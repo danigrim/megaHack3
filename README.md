@@ -202,8 +202,8 @@ Também disponibilizamos **Certificados**, para demonstrar o desenvolvimento dos
 
 ----
 ## Equipe
-* [Cleanderson Lobo](https://www.linkedin.com/in/cleandersonlobo/?originalSubdomain=br) - Software
+* [Cleanderson Lobo](https://www.linkedin.com/in/cleandersonlobo/?originalSubdomain=br) - Frontend
 * [Daniel Moura](https://www.linkedin.com/in/daniel-m-araujo/) - Business
-* [Daniella Grimberg](https://www.linkedin.com/in/daniella-grimberg-139a9614b/?originalSubdomain=br) - Software
-* [Laura Fiuza](https://www.linkedin.com/in/laura-fiuza-ba1077b4/) - Software
-* [Sara Margarido](https://www.linkedin.com/in/saramargarido/?originalSubdomain=br) - Design
+* [Daniella Grimberg](https://www.linkedin.com/in/daniella-grimberg-139a9614b/?originalSubdomain=br) - Backend 
+* [Laura Fiuza](https://www.linkedin.com/in/laura-fiuza-ba1077b4/) - Backend
+* [Sara Margarido](https://www.linkedin.com/in/saramargarido/?originalSubdomain=br) - UI/UX Design
