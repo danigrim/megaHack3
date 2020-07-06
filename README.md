@@ -27,14 +27,14 @@ Request Body :
      }
 
 Returns:
-
 {
-  "Perfil do leitor calculado com sucesso!": [3.0002, 2.0009, 1.778893, 3.7, 0.008889]
+         "Perfil do leitor calculado com sucesso!": [3.0002, 2.0009, 1.778893, 3.7, 0.008889]
 }
 
 No primeiro passo, fazemos um mapeamento do perfil leitor do aluno por meio de cards. Cada um desses cards tem um "perfil" na nossa base de dados, que é um vetor de cinco dimensões enumeradas de 0-5 mapeando características como a personalidade dos personagens, atmosféra e clima. Quando o aluno escolhe os cards que ele mais gosta, calculamos uma média desses cards para representar o perfil leitor do aluno. 
 
 Como definimos o perfil leitor: [a, b, c, d, e] 
+
 a: Cenário (0-N/A, 1-urbano, 2-Natureza, 3-Cartoon, 4-Fantasioso) - Por exemplo, Nárnia se encaixa em um cenário 4, e Pokemon em um cenário 3
 
 b: Gênero (0-N/A, 1-tendência masculina 2-tendência feminina) - **Esse valor não está relacionado ao genero da criança, somente o do personagem** Por exemplo, turma da mônica seria gênero 0, Cinderella seria gênero 2
@@ -48,7 +48,9 @@ e: Personagens (0-N/a, 1-Humano, 2-Princesa/Principe, 3-Animal, 4-Avatar/Game, 5
 **Nota** Na próxima vez que o endpoint for chamado para o mesmo aluno, re-calculamos a média dos cards accumulados dele. Esse perfil leitor é usado para recomendarmos livros para o aluno. 
 
 **GET /kids/recommend/:id** 
+
 Request Body : vazio
+
 
 Returns:
 
@@ -87,7 +89,9 @@ Returns:
 Esse endpoint recebe o id do usuário e calcula a distância euclideana (foto da equação) entre o perfil do usuário e o perfil de cada livro disponível na base de dados que está classificado como apropriado para a idade dele. Endpoint retorna uma lista ordenada do livro mais próximo, até o mais distante do perfil do usuário.
 
 **GET /kids/words/:id** 
+
 Request Body : vazio
+
 
 Returns:
 
