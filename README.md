@@ -95,7 +95,7 @@ Esse endpoint recebe o id do usuário e calcula a distância euclideana entre o 
 
 **Equação usada**
 
-<img src="./download.png" width="300">
+<img src="./download.png" width="500">
 
 ### GET /kids/words/:id
 `Request Body`: vazio
