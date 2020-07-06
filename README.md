@@ -91,7 +91,10 @@ Como definimos o perfil leitor: [a, b, c, d, e]
 }
 ```
 
-Esse endpoint recebe o id do usuário e calcula a distância euclideana (foto da equação) entre o perfil do usuário e o perfil de cada livro disponível na base de dados que está classificado como apropriado para a idade dele. Endpoint retorna uma lista ordenada do livro mais próximo, até o mais distante do perfil do usuário.
+Esse endpoint recebe o id do usuário e calcula a distância euclideana entre o perfil do usuário e o perfil de cada livro disponível na base de dados que está classificado como apropriado para a idade dele. Endpoint retorna uma lista ordenada do livro mais próximo, até o mais distante do perfil do usuário.
+
+**Equação usada**
+<img src="./imagens/download.png" width="100">
 
 ### GET /kids/words/:id
 `Request Body`: vazio
